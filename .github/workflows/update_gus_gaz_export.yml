@@ -1,0 +1,140 @@
+name: Update GUS gas export
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh_all:
+        description: "Pobierz ponownie wszystkie okresy"
+        required: false
+        default: false
+        type: boolean
+
+  schedule:
+    # GitHub Actions używa UTC
+    # Codziennie o 16:15 UTC
+    - cron: "15 16 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gus-gas-export-update
+  cancel-in-progress: false
+
+
+jobs:
+  update-gus-gas-export:
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 360
+
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+
+      # Cache nie musi być commitowany do repo.
+      # GitHub przechowuje go między uruchomieniami workflow.
+
+      - name: Restore GUS cache
+        uses: actions/cache@v4
+        with:
+          path: gus_gaz_export/cache
+          key: gus-gaz-export-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            gus-gaz-export-${{ runner.os }}-
+
+
+      - name: Download GUS gas export data
+        env:
+          GUS_DBW_API_KEY: ${{ secrets.GUS_DBW_API_KEY }}
+
+        shell: bash
+
+        run: |
+
+          if [ -z "$GUS_DBW_API_KEY" ]; then
+
+            echo "Brak sekretu GUS_DBW_API_KEY."
+            exit 1
+
+          fi
+
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
+             [ "${{ inputs.refresh_all }}" = "true" ]; then
+
+            echo "Pełne odświeżenie danych."
+
+            python gus_gaz_export_api.py --odswiez
+
+          else
+
+            echo "Standardowa aktualizacja z cache."
+
+            python gus_gaz_export_api.py
+
+          fi
+
+
+      - name: Show generated files
+        shell: bash
+        run: |
+
+          echo "Pliki wynikowe:"
+
+          find gus_gaz_export \
+            -maxdepth 1 \
+            -type f \
+            -print
+
+
+      - name: Commit updated data
+        shell: bash
+
+        run: |
+
+          git config \
+            user.name \
+            "github-actions[bot]"
+
+          git config \
+            user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+
+          git add \
+            gus_gaz_export/gus_gaz_export_miesieczne.csv \
+            gus_gaz_export/gus_gaz_export_roczne.csv \
+            gus_gaz_export/raport_pobierania_export.csv \
+            gus_gaz_export/metadane_gus_export.json
+
+
+          if git diff --cached --quiet; then
+
+            echo "Brak zmian w danych GUS."
+            exit 0
+
+          fi
+
+
+          git commit \
+            -m "Update GUS gas export data"
+
+
+          git pull \
+            --rebase
+
+
+          git push
