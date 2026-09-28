@@ -1,0 +1,358 @@
+name: Pobierz dane GUS DBW - import gazu
+
+
+# ============================================================
+# URUCHAMIANIE RĘCZNE
+# ============================================================
+
+on:
+  workflow_dispatch:
+
+    inputs:
+
+      rok_od:
+        description: "Rok początkowy"
+        required: true
+        default: "2018"
+        type: string
+
+      rok_do:
+        description: "Rok końcowy - puste = bieżący rok"
+        required: false
+        default: ""
+        type: string
+
+      odswiez:
+        description: "Pobrać wszystko ponownie?"
+        required: true
+        default: false
+        type: boolean
+
+
+permissions:
+  contents: read
+
+
+# ============================================================
+# JOB
+# ============================================================
+
+jobs:
+
+  pobierz-dane:
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 360
+
+
+    steps:
+
+      # ======================================================
+      # 1. POBRANIE REPOZYTORIUM
+      # ======================================================
+
+      - name: Pobierz repozytorium
+        uses: actions/checkout@v4
+
+
+      # ======================================================
+      # 2. PYTHON
+      # ======================================================
+
+      - name: Ustaw Python
+        uses: actions/setup-python@v5
+
+        with:
+          python-version: "3.12"
+
+
+      # ======================================================
+      # 3. PRZYWRÓCENIE CACHE
+      # ======================================================
+
+      - name: Przywróć cache GUS
+        id: cache-restore
+        uses: actions/cache/restore@v4
+
+        with:
+
+          path: gus_gaz/cache
+
+          key: gus-gaz-cache-${{ github.run_id }}
+
+          restore-keys: |
+            gus-gaz-cache-
+
+
+      # ======================================================
+      # 4. INFORMACJE
+      # ======================================================
+
+      - name: Informacje
+
+        shell: bash
+
+        run: |
+
+          echo "================================"
+          echo "PYTHON"
+          echo "================================"
+
+          python --version
+
+
+          echo ""
+          echo "================================"
+          echo "PARAMETRY"
+          echo "================================"
+
+          echo "Rok od:"
+          echo "${{ inputs.rok_od }}"
+
+          echo ""
+
+          echo "Rok do:"
+          echo "${{ inputs.rok_do }}"
+
+          echo ""
+
+          echo "Odśwież:"
+          echo "${{ inputs.odswiez }}"
+
+
+          echo ""
+          echo "================================"
+          echo "PLIKI"
+          echo "================================"
+
+          ls -la
+
+
+          echo ""
+          echo "================================"
+          echo "CACHE"
+          echo "================================"
+
+          if [ -d "gus_gaz/cache" ]; then
+
+            find gus_gaz/cache \
+              -maxdepth 1 \
+              -type f \
+              | head -20
+
+          else
+
+            echo "Brak wcześniejszego cache."
+
+          fi
+
+
+      # ======================================================
+      # 5. URUCHOMIENIE PROGRAMU
+      # ======================================================
+
+      - name: Pobierz dane GUS
+
+        id: gus
+
+        continue-on-error: true
+
+        shell: bash
+
+        run: |
+
+          echo "================================"
+          echo "BUDUJĘ KOMENDĘ"
+          echo "================================"
+
+
+          CMD=(
+
+            python
+
+            gus_gaz_api.py
+
+            --od
+
+            "${{ inputs.rok_od }}"
+
+          )
+
+
+          # --------------------------------------------------
+          # ROK KOŃCOWY
+          # --------------------------------------------------
+
+          if [ -n "${{ inputs.rok_do }}" ]; then
+
+            CMD+=(
+
+              --do
+
+              "${{ inputs.rok_do }}"
+
+            )
+
+          fi
+
+
+          # --------------------------------------------------
+          # ODSWIEŻ
+          # --------------------------------------------------
+
+          if [ "${{ inputs.odswiez }}" = "true" ]; then
+
+            CMD+=(
+
+              --odswiez
+
+            )
+
+          fi
+
+
+          echo ""
+          echo "Uruchamiam:"
+          printf '%q ' "${CMD[@]}"
+          echo ""
+          echo ""
+
+
+          echo "================================"
+          echo "START POBIERANIA"
+          echo "================================"
+
+
+          "${CMD[@]}"
+
+
+      # ======================================================
+      # 6. POKAŻ WYNIKI
+      # ======================================================
+
+      - name: Pokaż pobrane pliki
+
+        if: always()
+
+        shell: bash
+
+        run: |
+
+          echo ""
+          echo "================================"
+          echo "WYNIKI"
+          echo "================================"
+
+
+          if [ -d "gus_gaz" ]; then
+
+            find gus_gaz \
+              -maxdepth 2 \
+              -type f \
+              -printf "%p  %k KB\n" \
+              | sort
+
+          else
+
+            echo "Folder gus_gaz jeszcze nie istnieje."
+
+          fi
+
+
+      # ======================================================
+      # 7. ZAPIS CACHE
+      # ======================================================
+
+      - name: Zapisz cache GUS
+
+        if: always()
+
+        uses: actions/cache/save@v4
+
+        with:
+
+          path: gus_gaz/cache
+
+          key: gus-gaz-cache-${{ github.run_id }}
+
+
+      # ======================================================
+      # 8. GOTOWE WYNIKI
+      # ======================================================
+
+      - name: Zapisz gotowe CSV
+
+        if: always()
+
+        uses: actions/upload-artifact@v4
+
+        with:
+
+          name: gus-gaz-wyniki-${{ github.run_number }}
+
+          path: |
+
+            gus_gaz/gus_gaz_miesieczne.csv
+
+            gus_gaz/gus_gaz_roczne.csv
+
+            gus_gaz/raport_pobierania.csv
+
+            gus_gaz/metadane_gus.json
+
+          if-no-files-found: warn
+
+          retention-days: 30
+
+
+      # ======================================================
+      # 9. PEŁNY FOLDER
+      # ======================================================
+
+      - name: Zapisz pełny folder GUS
+
+        if: always()
+
+        uses: actions/upload-artifact@v4
+
+        with:
+
+          name: gus-gaz-pelny-${{ github.run_number }}
+
+          path: gus_gaz/
+
+          if-no-files-found: warn
+
+          retention-days: 30
+
+
+      # ======================================================
+      # 10. SPRAWDZENIE CZY PROGRAM SIĘ UDAŁ
+      # ======================================================
+
+      - name: Sprawdź wynik programu
+
+        if: steps.gus.outcome == 'failure'
+
+        shell: bash
+
+        run: |
+
+          echo ""
+          echo "================================"
+          echo "PROGRAM ZAKOŃCZYŁ SIĘ BŁĘDEM"
+          echo "================================"
+
+          echo ""
+
+          echo "Cache i częściowo pobrane dane"
+          echo "zostały wcześniej zapisane."
+
+          echo ""
+
+          echo "Uruchom workflow ponownie."
+          echo "Program powinien kontynuować"
+          echo "od zapisanego miejsca."
+
+          exit 1
