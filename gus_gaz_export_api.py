@@ -2,20 +2,20 @@
 # -*- coding: utf-8 -*-
 
 """
-Eksport gazu z Polski według kraju partnera/przeznaczenia.
-Źródło: API DBW GUS.
+Eksport gazu z Polski według kraju przeznaczenia.
+API DBW GUS.
 
-Pobierane towary:
-    CN 27111100 - gaz ziemny skroplony
-    CN 27112100 - gaz ziemny w stanie gazowym
+CN:
+27111100 - gaz ziemny skroplony LNG
+27112100 - gaz ziemny w stanie gazowym
 
 Wyniki:
-    gus_gaz_export/
-        gus_gaz_export_miesieczne.csv
-        gus_gaz_export_roczne.csv
-        raport_pobierania_export.csv
-        metadane_gus_export.json
-        cache/
+gus_gaz_export/
+    gus_gaz_export_miesieczne.csv
+    gus_gaz_export_roczne.csv
+    raport_pobierania_export.csv
+    metadane_gus_export.json
+    cache/
 """
 
 import argparse
@@ -41,6 +41,12 @@ from urllib.request import Request, urlopen
 
 API = "https://api-dbw.stat.gov.pl/api/1.2.0/"
 
+# Eksport towarów
+ID_ZMIENNEJ = 220
+
+# Polska; Kraje towary; CN - uzupełniająca jednostka miary
+ID_PRZEKROJU = 1434
+
 KODY_CN = {
     "27111100",
     "27112100",
@@ -53,25 +59,18 @@ ROZMIAR_STRONY = 5000
 
 
 # ============================================================
-# KLUCZ API GUS
-# ============================================================
-#
-# WKLEJ TUTAJ DOKŁADNIE TEN SAM KLUCZ,
-# KTÓRY MASZ W DZIAŁAJĄCYM KODZIE IMPORTOWYM.
-#
-# ZOSTAW CUDZYSŁOWY.
-# JEŻELI KLUCZ KOŃCZY SIĘ "=" TO "=" TEŻ MUSI ZOSTAĆ.
-#
-# PRZYKŁAD:
-# KLUCZ_API = "abc123xyz="
-#
+# KLUCZ API
 # ============================================================
 
-KLUCZ_API = "WKLEJ_TUTAJ_SWOJ_KLUCZ_API"
+# WKLEJ TU DOKŁADNIE TEN SAM KLUCZ,
+# KTÓRY DZIAŁA W TWOIM SKRYPCIE IMPORTOWYM.
+# NIE USUWAJ KOŃCOWEGO "=".
+
+KLUCZ_API = "rd0rSweA0HdXUfrNpJB5U6vypciTFcvBzuM8kRFarVU="
 
 
 # ============================================================
-# KATEGORIE SPECJALNE GUS
+# POZOSTAŁE USTAWIENIA
 # ============================================================
 
 KATEGORIE_SPECJALNE = {
@@ -113,7 +112,7 @@ KOLUMNY = [
 
 
 # ============================================================
-# POMOCNICZE
+# ZAPIS
 # ============================================================
 
 def zapisz_json(sciezka, dane):
@@ -139,20 +138,14 @@ def zapisz_json(sciezka, dane):
     tmp.replace(sciezka)
 
 
-def zapisz_csv(
-    sciezka,
-    kolumny,
-    wiersze
-):
+def zapisz_csv(sciezka, kolumny, wiersze):
 
     sciezka.parent.mkdir(
         parents=True,
         exist_ok=True
     )
 
-    tmp = sciezka.with_suffix(
-        ".csv.tmp"
-    )
+    tmp = sciezka.with_suffix(".csv.tmp")
 
     with tmp.open(
         "w",
@@ -167,48 +160,33 @@ def zapisz_csv(
         )
 
         writer.writeheader()
-
-        writer.writerows(
-            wiersze
-        )
+        writer.writerows(wiersze)
 
     tmp.replace(sciezka)
 
 
 # ============================================================
-# KLIENT API
+# KLIENT GUS
 # ============================================================
 
 class KlientGUS:
 
     def __init__(self, klucz):
 
-        klucz = (
-            klucz
-            .strip()
-            .strip('"')
-            .strip("'")
-        )
+        self.klucz = klucz.strip()
+        self.ostatnie_zadanie = 0.0
 
-        if not klucz:
+        if not self.klucz:
 
             raise RuntimeError(
                 "KLUCZ_API jest pusty."
             )
 
-        if (
-            klucz
-            == "WKLEJ_TUTAJ_SWOJ_KLUCZ_API"
-        ):
+        if self.klucz == "TU_WKLEJ_SWOJ_KLUCZ_GUS":
 
             raise RuntimeError(
-                "Nie wkleiłeś klucza API. "
-                "Wpisz swój klucz w zmiennej KLUCZ_API."
+                "Wklej swój klucz GUS w zmiennej KLUCZ_API."
             )
-
-        self.klucz = klucz
-
-        self.ostatnie_zadanie = 0.0
 
 
     def pobierz(
@@ -218,73 +196,54 @@ class KlientGUS:
         dopuszczaj_404=False
     ):
 
-        parametry = {
-            "lang": "pl",
-            **(parametry or {})
-        }
-
         url = (
             API
             + endpoint
             + "?"
-            + urlencode(parametry)
+            + urlencode(
+                {
+                    "lang": "pl",
+                    **(parametry or {})
+                }
+            )
         )
-
 
         for proba in range(6):
 
-            # Bezpiecznie poniżej limitu API.
-            czekaj = max(
-                0,
-                2.05
-                - (
-                    time.monotonic()
-                    - self.ostatnie_zadanie
+            # ograniczenie liczby zapytań
+            time.sleep(
+                max(
+                    0,
+                    2.05
+                    - (
+                        time.monotonic()
+                        - self.ostatnie_zadanie
+                    )
                 )
             )
 
-            if czekaj:
-
-                time.sleep(czekaj)
-
-
-            self.ostatnie_zadanie = (
-                time.monotonic()
-            )
-
+            self.ostatnie_zadanie = time.monotonic()
 
             naglowki = {
-
-                "Accept":
-                    "application/json",
-
-                "Accept-Encoding":
-                    "gzip",
-
-                # TU KLUCZ TRAFIA DO API GUS
-                "X-ClientId":
-                    self.klucz,
-
-                "User-Agent":
-                    "GUS-DBW-gaz-export/2.0",
+                "Accept": "application/json",
+                "Accept-Encoding": "gzip",
+                "X-ClientId": self.klucz,
+                "User-Agent": "GUS-DBW-gaz-export/1.0",
             }
-
 
             try:
 
-                req = Request(
+                request = Request(
                     url,
                     headers=naglowki
                 )
 
                 with urlopen(
-                    req,
+                    request,
                     timeout=90
                 ) as response:
 
-                    tresc = (
-                        response.read()
-                    )
+                    tresc = response.read()
 
                     if (
                         response.headers.get(
@@ -293,10 +252,8 @@ class KlientGUS:
                         == "gzip"
                     ):
 
-                        tresc = (
-                            gzip.decompress(
-                                tresc
-                            )
+                        tresc = gzip.decompress(
+                            tresc
                         )
 
                     return json.loads(
@@ -319,21 +276,20 @@ class KlientGUS:
                 if e.code == 401:
 
                     raise RuntimeError(
-                        "HTTP 401: GUS nie zaakceptował klucza API. "
-                        "Sprawdź, czy KLUCZ_API został skopiowany "
-                        "w całości, razem z końcowym znakiem '='."
+                        "HTTP 401 - nieprawidłowy klucz API GUS. "
+                        "Sprawdź KLUCZ_API."
                     ) from None
 
 
                 if e.code == 403:
 
                     raise RuntimeError(
-                        "HTTP 403: GUS odrzucił dostęp. "
-                        "Klucz może być nieaktywny albo nieprawidłowy."
+                        "HTTP 403 - GUS odrzucił dostęp. "
+                        "Sprawdź klucz API."
                     ) from None
 
 
-                if e.code in (
+                if e.code not in (
                     408,
                     429,
                     500,
@@ -342,16 +298,12 @@ class KlientGUS:
                     504
                 ):
 
-                    powod = (
-                        f"HTTP {e.code}"
-                    )
-
-                else:
-
                     raise RuntimeError(
-                        f"HTTP {e.code} dla "
-                        f"{endpoint}"
+                        f"HTTP {e.code}: {endpoint}"
                     ) from None
+
+
+                powod = f"HTTP {e.code}"
 
 
             except (
@@ -361,502 +313,126 @@ class KlientGUS:
                 ValueError
             ) as e:
 
-                powod = (
-                    type(e).__name__
-                )
+                powod = type(e).__name__
 
 
             if proba == 5:
 
                 raise RuntimeError(
-                    f"Nie udało się pobrać "
-                    f"{endpoint}: {powod}"
+                    f"Nie udało się pobrać {endpoint}: {powod}"
                 )
 
 
-            opoznienie = min(
-                60,
-                5 * (2 ** proba)
+            opoznienie = (
+                120
+                if powod == "HTTP 429"
+                else min(
+                    60,
+                    5 * 2 ** proba
+                )
             )
 
-
-            if powod == "HTTP 429":
-
-                opoznienie = 120
-
-
             print(
-                f"{powod}; "
-                f"ponawiam za "
+                f"{powod}; ponawiam za "
                 f"{opoznienie} s.",
                 flush=True
             )
 
-
-            time.sleep(
-                opoznienie
-            )
+            time.sleep(opoznienie)
 
 
-    def slownik(
-        self,
-        nazwa,
-        klucz
-    ):
+    def slownik(self, nazwa, klucz):
 
         wynik = {}
-
         strona = 1
-
 
         while True:
 
             dane = self.pobierz(
-
-                "dictionaries/"
-                + nazwa,
-
+                "dictionaries/" + nazwa,
                 {
-                    "page":
-                        strona,
-
-                    "page-size":
-                        ROZMIAR_STRONY,
+                    "page": strona,
+                    "page-size": ROZMIAR_STRONY
                 }
             )
 
-
             if (
-                not isinstance(
-                    dane,
-                    dict
-                )
+                not isinstance(dane, dict)
                 or
                 not isinstance(
-                    dane.get(
-                        "data"
-                    ),
+                    dane.get("data"),
                     list
                 )
             ):
 
                 raise RuntimeError(
-                    f"Nieprawidłowa odpowiedź "
-                    f"słownika {nazwa}."
+                    f"Błąd słownika: {nazwa}"
                 )
 
 
-            for x in dane["data"]:
-
-                wynik[
-                    x[klucz]
-                ] = x
-
-
-            if (
-                strona
-                >= dane["page-count"]
-            ):
-
-                break
-
-
-            strona += 1
-
-
-        return wynik
-
-
-# ============================================================
-# AUTOMATYCZNE WYSZUKIWANIE ZMIENNEJ "EKSPORT TOWARÓW"
-# ============================================================
-
-def znajdz_zmienna_export(
-    klient
-):
-
-    print(
-        "Szukam w GUS zmiennej "
-        "'Eksport towarów'...",
-        flush=True
-    )
-
-
-    strona = 0
-
-    znalezione = []
-
-
-    while True:
-
-        dane = klient.pobierz(
-
-            "variable/"
-            "variable-section-periods",
-
-            {
-                "ile-na-stronie":
-                    ROZMIAR_STRONY,
-
-                "numer-strony":
-                    strona,
-            }
-        )
-
-
-        if (
-            not isinstance(
-                dane,
-                dict
-            )
-            or
-            not isinstance(
-                dane.get(
-                    "data"
-                ),
-                list
-            )
-        ):
-
-            raise RuntimeError(
-                "Nie udało się odczytać "
-                "listy zmiennych GUS."
-            )
-
-
-        for rekord in dane["data"]:
-
-            teksty = [
-
-                str(v)
-
-                for v
-                in rekord.values()
-
-                if isinstance(
-                    v,
-                    str
-                )
-            ]
-
-
-            calosc = (
-                " | ".join(
-                    teksty
-                )
-                .casefold()
-            )
-
-
-            if (
-                "eksport towarów"
-                in calosc
-                or
-                "eksport towarow"
-                in calosc
-            ):
-
-                znalezione.append(
-                    rekord
-                )
-
-
-        page_count = (
-            dane.get(
-                "page-count"
-            )
-        )
-
-
-        if page_count is None:
-
-            break
-
-
-        # API GUS stosuje numerowanie
-        # stron od 0 dla danych.
-        if strona >= page_count:
-
-            break
-
-
-        strona += 1
-
-
-    if not znalezione:
-
-        raise RuntimeError(
-            "Nie znaleziono w API GUS "
-            "zmiennej 'Eksport towarów'."
-        )
-
-
-    # Próbujemy znaleźć pole id-zmienna.
-    id_zmiennej = None
-
-
-    for rekord in znalezione:
-
-        for klucz in (
-            "id-zmienna",
-            "id-zmiennej",
-            "id_zmienna"
-        ):
-
-            if klucz in rekord:
-
-                id_zmiennej = (
-                    rekord[klucz]
-                )
-
-                break
-
-
-        if id_zmiennej is not None:
-
-            break
-
-
-    if id_zmiennej is None:
-
-        raise RuntimeError(
-            "Znaleziono eksport, ale API "
-            "nie zwróciło pola id-zmienna."
-        )
-
-
-    print(
-        f"Znaleziono "
-        f"ID zmiennej eksportu: "
-        f"{id_zmiennej}",
-        flush=True
-    )
-
-
-    return (
-        int(
-            id_zmiennej
-        ),
-        znalezione
-    )
-
-
-# ============================================================
-# WYBÓR PRZEKROJU
-# ============================================================
-
-def znajdz_przekroj_gazowy(
-    klient,
-    id_zmiennej,
-    rekordy_export
-):
-
-    kandydaci = set()
-
-
-    for rekord in rekordy_export:
-
-        rekord_id = None
-
-
-        for klucz in (
-            "id-przekroj",
-            "id-przekroju",
-            "id_przekroj"
-        ):
-
-            if klucz in rekord:
-
-                rekord_id = (
-                    rekord[klucz]
-                )
-
-                break
-
-
-        rekord_zmienna = (
-            rekord.get(
-                "id-zmienna",
-                rekord.get(
-                    "id-zmiennej"
-                )
-            )
-        )
-
-
-        if (
-            rekord_id is not None
-            and
-            rekord_zmienna is not None
-            and
-            int(rekord_zmienna)
-            == int(id_zmiennej)
-        ):
-
-            kandydaci.add(
-                int(
-                    rekord_id
-                )
-            )
-
-
-    if not kandydaci:
-
-        # Awaryjnie próbujemy przekroju,
-        # który działał w danych importowych.
-        kandydaci.add(1434)
-
-
-    for id_przekroju in sorted(
-        kandydaci
-    ):
-
-        try:
-
-            pozycje = klient.pobierz(
-
-                "variable/"
-                "variable-section-position",
-
+            wynik.update(
                 {
-                    "id-przekroj":
-                        id_przekroju
+                    x[klucz]: x
+                    for x in dane["data"]
                 }
             )
 
-        except RuntimeError:
 
-            continue
+            if strona >= dane["page-count"]:
 
-
-        if not isinstance(
-            pozycje,
-            list
-        ):
-
-            continue
+                return wynik
 
 
-        nazwy_wymiarow = {
-
-            x.get(
-                "nazwa-wymiar",
-                ""
-            )
-
-            for x
-            in pozycje
-        }
-
-
-        ma_kraje = (
-            "Kraje towary"
-            in nazwy_wymiarow
-        )
-
-
-        ma_cn = any(
-
-            "CN"
-            in nazwa
-
-            for nazwa
-            in nazwy_wymiarow
-        )
-
-
-        symbole = {
-
-            str(
-                x.get(
-                    "symbol",
-                    ""
-                )
-            )
-
-            for x
-            in pozycje
-        }
-
-
-        ma_gaz = (
-            KODY_CN
-            .issubset(
-                symbole
-            )
-        )
-
-
-        if (
-            ma_kraje
-            and
-            ma_cn
-            and
-            ma_gaz
-        ):
-
-            print(
-                f"Znaleziono właściwy "
-                f"przekrój: "
-                f"{id_przekroju}",
-                flush=True
-            )
-
-            return (
-                id_przekroju,
-                pozycje
-            )
-
-
-    raise RuntimeError(
-        "Nie znaleziono przekroju eksportowego "
-        "z krajami i kodami CN "
-        "27111100 / 27112100."
-    )
+            strona += 1
 
 
 # ============================================================
 # METADANE
 # ============================================================
 
-def wczytaj_metadane(
-    klient
-):
-
-    ID_ZMIENNEJ, rekordy = (
-        znajdz_zmienna_export(
-            klient
-        )
-    )
-
+def wczytaj_metadane(klient):
 
     meta = klient.pobierz(
-
-        "variable/"
-        "variable-meta",
-
+        "variable/variable-meta",
         {
-            "id-zmiennej":
-                ID_ZMIENNEJ
+            "id-zmiennej": ID_ZMIENNEJ
         }
     )
 
 
+    nazwa = meta.get(
+        "nazwa",
+        ""
+    )
+
+
     print(
-        "Zmienna:",
-        meta.get(
-            "nazwa"
-        )
+        f"Zmienna GUS: {nazwa}"
     )
 
 
-    ID_PRZEKROJU, pozycje = (
-        znajdz_przekroj_gazowy(
-            klient,
-            ID_ZMIENNEJ,
-            rekordy
+    if "eksport" not in nazwa.casefold():
+
+        raise RuntimeError(
+            f"ID_ZMIENNEJ={ID_ZMIENNEJ} "
+            f"nie jest eksportem. "
+            f"GUS zwrócił: {nazwa!r}"
         )
+
+
+    pozycje = klient.pobierz(
+        "variable/variable-section-position",
+        {
+            "id-przekroj": ID_PRZEKROJU
+        }
     )
+
+
+    if not isinstance(pozycje, list):
+
+        raise RuntimeError(
+            "Nie udało się pobrać pozycji przekroju."
+        )
 
 
     # ========================================================
@@ -865,31 +441,21 @@ def wczytaj_metadane(
 
     kraje = {
 
-        x["id-pozycja"]:
-            x
+        x["id-pozycja"]: x
 
-        for x
-        in pozycje
+        for x in pozycje
 
         if (
-            x.get(
-                "nazwa-wymiar"
-            )
+            x.get("nazwa-wymiar")
             == "Kraje towary"
 
-            and
-
-            x.get(
-                "symbol"
-            )
+            and x.get("symbol")
             not in (
                 "00",
                 "EU"
             )
 
-            and
-
-            x.get(
+            and x.get(
                 "nazwa-pozycja",
                 ""
             )
@@ -900,17 +466,22 @@ def wczytaj_metadane(
     }
 
 
+    if not kraje:
+
+        raise RuntimeError(
+            "Nie znaleziono krajów w przekroju."
+        )
+
+
     # ========================================================
-    # CN
+    # TOWARY
     # ========================================================
 
     towary = {
 
-        x["id-pozycja"]:
-            dict(x)
+        x["id-pozycja"]: dict(x)
 
-        for x
-        in pozycje
+        for x in pozycje
 
         if (
             "CN"
@@ -919,9 +490,7 @@ def wczytaj_metadane(
                 ""
             )
 
-            and
-
-            str(
+            and str(
                 x.get(
                     "symbol",
                     ""
@@ -935,32 +504,18 @@ def wczytaj_metadane(
     znalezione_cn = {
 
         str(
-            x.get(
-                "symbol"
-            )
+            x.get("symbol")
         )
 
-        for x
-        in towary.values()
+        for x in towary.values()
     }
 
 
-    if (
-        znalezione_cn
-        != KODY_CN
-    ):
+    if znalezione_cn != KODY_CN:
 
         raise RuntimeError(
-            "Nie znaleziono obu "
-            "kodów gazu CN."
-        )
-
-
-    if not kraje:
-
-        raise RuntimeError(
-            "Nie znaleziono "
-            "krajów w przekroju."
+            f"Nie znaleziono obu kodów CN. "
+            f"Znaleziono: {znalezione_cn}"
         )
 
 
@@ -970,33 +525,25 @@ def wczytaj_metadane(
 
     for x in towary.values():
 
-        nazwa = (
-            x.get(
-                "nazwa-pozycja",
-                ""
-            )
+        nazwa_towaru = x.get(
+            "nazwa-pozycja",
+            ""
         )
 
-
-        m = re.search(
+        jednostka = re.search(
             r"\[([^\[\]]+)\]\s*$",
-            nazwa
+            nazwa_towaru
         )
 
+        if jednostka:
 
-        if m:
-
-            x[
-                "jednostka"
-            ] = (
-                m.group(1)
+            x["jednostka"] = (
+                jednostka.group(1)
             )
 
         else:
 
-            x[
-                "jednostka"
-            ] = ""
+            x["jednostka"] = ""
 
 
     # ========================================================
@@ -1022,16 +569,13 @@ def wczytaj_metadane(
             )
         )
 
-
         if (
             x.get(
                 "id-czestotliwosc"
             )
             == 3
 
-            and
-
-            x.get(
+            and x.get(
                 "id-typ"
             )
             == 1
@@ -1054,52 +598,42 @@ def wczytaj_metadane(
         in okresy.items()
 
         if (
-            x.get(
-                "opis"
-            )
+            x.get("opis")
             ==
             "rok - dane roczne - rok"
         )
     ]
 
 
-    if len(
-        miesiace
-    ) != 12:
+    if set(miesiace) != set(range(1, 13)):
 
         raise RuntimeError(
-            "Nie znaleziono "
-            "12 miesięcy w słowniku GUS."
+            "Nie znaleziono wszystkich 12 miesięcy."
         )
 
 
-    if len(
-        roczne
-    ) != 1:
+    if len(roczne) != 1:
 
         raise RuntimeError(
-            "Nie rozpoznano "
-            "okresu rocznego."
+            "Nie rozpoznano okresu rocznego."
         )
 
+
+    # ========================================================
+    # SERIE
+    # ========================================================
 
     serie = {
 
-        x[
-            "id-czestotliwosc"
-        ]:
-            x
+        x["id-czestotliwosc"]: x
 
-        for x
-        in meta.get(
+        for x in meta.get(
             "przekroje",
             []
         )
 
         if (
-            x.get(
-                "id-przekroj"
-            )
+            x.get("id-przekroj")
             == ID_PRZEKROJU
         )
     }
@@ -1108,61 +642,38 @@ def wczytaj_metadane(
     if not {
         1,
         3
-    }.issubset(
-        serie
-    ):
+    }.issubset(serie):
 
         raise RuntimeError(
-            "Wybrany przekrój "
-            "nie ma jednocześnie "
-            "danych miesięcznych "
-            "i rocznych."
+            "Brak miesięcznej albo rocznej "
+            "serii dla przekroju."
         )
 
 
     return {
+        "zrodlo": "GUS, DBW, CC BY 4.0",
+        "api": API,
+        "zmienna": meta,
+        "kraje": kraje,
+        "towary": towary,
+        "miesiace": miesiace,
+        "okres_roczny": roczne[0],
+        "serie": serie,
 
-        "id_zmiennej":
-            ID_ZMIENNEJ,
+        "flagi": klient.slownik(
+            "flag-dictionary",
+            "id-flaga"
+        ),
 
-        "id_przekroju":
-            ID_PRZEKROJU,
+        "braki": klient.slownik(
+            "no-value-dictionary",
+            "id-brak-wartosci"
+        ),
 
-        "zmienna":
-            meta,
-
-        "kraje":
-            kraje,
-
-        "towary":
-            towary,
-
-        "miesiace":
-            miesiace,
-
-        "okres_roczny":
-            roczne[0],
-
-        "serie":
-            serie,
-
-        "flagi":
-            klient.slownik(
-                "flag-dictionary",
-                "id-flaga"
-            ),
-
-        "braki":
-            klient.slownik(
-                "no-value-dictionary",
-                "id-brak-wartosci"
-            ),
-
-        "tajnosc":
-            klient.slownik(
-                "confidentionality-dictionary",
-                "id-tajnosci"
-            ),
+        "tajnosc": klient.slownik(
+            "confidentionality-dictionary",
+            "id-tajnosci"
+        ),
     }
 
 
@@ -1187,16 +698,13 @@ def pozycja_wymiaru(
             == wymiar
         ):
 
-            return (
-                wiersz.get(
-                    f"id-pozycja-{i}"
-                )
-            )
+            return wiersz[
+                f"id-pozycja-{i}"
+            ]
 
 
     raise RuntimeError(
-        f"Nie znaleziono "
-        f"wymiaru {wymiar}."
+        f"Brakuje wymiaru {wymiar}."
     )
 
 
@@ -1213,34 +721,13 @@ def pobierz_okres(
     odswiez=False
 ):
 
-    id_zmiennej = (
-        meta[
-            "id_zmiennej"
-        ]
-    )
-
-    id_przekroju = (
-        meta[
-            "id_przekroju"
-        ]
-    )
-
-
     okres = (
 
-        meta[
-            "miesiace"
-        ][
-            miesiac
-        ]
+        meta["miesiace"][miesiac]
 
         if miesiac
 
-        else
-
-        meta[
-            "okres_roczny"
-        ]
+        else meta["okres_roczny"]
     )
 
 
@@ -1250,22 +737,17 @@ def pobierz_okres(
 
         if miesiac
 
-        else str(
-            rok
-        )
+        else str(rok)
     )
 
 
     aktualizacja = (
 
-        meta[
-            "serie"
-        ][
+        meta["serie"][
             3
             if miesiac
             else 1
-        ]
-        .get(
+        ].get(
             "aktualizacja-ostatnia",
             ""
         )
@@ -1275,22 +757,17 @@ def pobierz_okres(
     plik = (
 
         cache
-
-        / (
-            f"{rok}_"
-            f"{okres}.json"
-        )
+        / f"{rok}_{okres}.json"
     )
 
 
     sygnatura = [
-
+        1,
         API,
-        id_zmiennej,
-        id_przekroju,
-        sorted(
-            KODY_CN
-        ),
+        ID_ZMIENNEJ,
+        ID_PRZEKROJU,
+        sorted(KODY_CN),
+        ROZMIAR_STRONY,
         aktualizacja,
     ]
 
@@ -1318,6 +795,12 @@ def pobierz_okres(
         "liczba_stron":
             0,
 
+        "ostatnia_strona_api":
+            None,
+
+        "wiersze_api":
+            0,
+
         "dane":
             [],
 
@@ -1338,7 +821,6 @@ def pobierz_okres(
             )
         )
 
-
         if (
             zapisany.get(
                 "sygnatura"
@@ -1352,8 +834,7 @@ def pobierz_okres(
     if stan["gotowe"]:
 
         print(
-            f"{etykieta}: "
-            f"cache",
+            f"{etykieta}: z cache.",
             flush=True
         )
 
@@ -1364,9 +845,7 @@ def pobierz_okres(
 
         next(
             iter(
-                meta[
-                    "towary"
-                ].values()
+                meta["towary"].values()
             )
         )[
             "id-wymiar"
@@ -1378,9 +857,7 @@ def pobierz_okres(
 
         next(
             iter(
-                meta[
-                    "kraje"
-                ].values()
+                meta["kraje"].values()
             )
         )[
             "id-wymiar"
@@ -1388,42 +865,29 @@ def pobierz_okres(
     )
 
 
-    while not stan[
-        "gotowe"
-    ]:
+    wymiar_polski = 2
+
+
+    while not stan["gotowe"]:
 
         strona = (
-            stan[
-                "nastepna_strona"
-            ]
+            stan["nastepna_strona"]
         )
 
 
+        parametry = {
+            "id-zmienna": ID_ZMIENNEJ,
+            "id-przekroj": ID_PRZEKROJU,
+            "id-rok": rok,
+            "id-okres": okres,
+            "ile-na-stronie": ROZMIAR_STRONY,
+            "numer-strony": strona,
+        }
+
+
         d = klient.pobierz(
-
-            "variable/"
-            "variable-data-section",
-
-            {
-                "id-zmienna":
-                    id_zmiennej,
-
-                "id-przekroj":
-                    id_przekroju,
-
-                "id-rok":
-                    rok,
-
-                "id-okres":
-                    okres,
-
-                "ile-na-stronie":
-                    ROZMIAR_STRONY,
-
-                "numer-strony":
-                    strona,
-            },
-
+            "variable/variable-data-section",
+            parametry,
             dopuszczaj_404=(
                 strona == 0
             )
@@ -1434,76 +898,133 @@ def pobierz_okres(
 
             print(
                 f"{etykieta}: "
-                f"brak danych",
+                f"brak danych w API.",
                 flush=True
             )
 
             return None
 
 
-        dane = (
-            d.get(
-                "data",
-                []
+        if (
+            not isinstance(
+                d,
+                dict
             )
-        )
+            or
+            not isinstance(
+                d.get("data"),
+                list
+            )
+        ):
+
+            raise RuntimeError(
+                f"Błędna odpowiedź API "
+                f"dla {etykieta}."
+            )
+
+
+        dane = d["data"]
 
 
         if (
             not dane
             and
             strona == 0
+            and
+            d.get(
+                "page-count",
+                0
+            )
+            == 0
         ):
 
             return None
 
 
-        ostatnia = (
-            d.get(
-                "page-count",
-                0
-            )
+        ostatnia_strona = (
+            d["page-count"]
         )
+
+
+        if (
+            stan[
+                "ostatnia_strona_api"
+            ]
+            not in (
+                None,
+                ostatnia_strona
+            )
+        ):
+
+            raise RuntimeError(
+                f"GUS zmienił liczbę stron "
+                f"w trakcie pobierania "
+                f"{etykieta}."
+            )
 
 
         for w in dane:
 
-            cn = (
-                pozycja_wymiaru(
-                    w,
-                    wymiar_cn
+            if (
+                w.get(
+                    "id-zmienna"
                 )
-            )
+                != ID_ZMIENNEJ
+            ):
+
+                raise RuntimeError(
+                    "API zwróciło dane "
+                    "innej zmiennej."
+                )
 
 
             if (
-                cn
-                not in
-                meta[
-                    "towary"
-                ]
+                w.get(
+                    "id-przekroj"
+                )
+                != ID_PRZEKROJU
             ):
+
+                raise RuntimeError(
+                    "API zwróciło dane "
+                    "innego przekroju."
+                )
+
+
+            cn = pozycja_wymiaru(
+                w,
+                wymiar_cn
+            )
+
+
+            if cn not in meta["towary"]:
 
                 continue
 
 
-            kraj = (
-                pozycja_wymiaru(
-                    w,
-                    wymiar_kraju
-                )
+            kraj = pozycja_wymiaru(
+                w,
+                wymiar_kraju
             )
 
 
-            if (
-                kraj
-                not in
-                meta[
-                    "kraje"
-                ]
-            ):
+            if kraj not in meta["kraje"]:
 
                 continue
+
+
+            # sprawdzenie Polski
+            if (
+                pozycja_wymiaru(
+                    w,
+                    wymiar_polski
+                )
+                != 33617
+            ):
+
+                raise RuntimeError(
+                    "Dane nie dotyczą Polski."
+                )
 
 
             stan[
@@ -1511,47 +1032,43 @@ def pobierz_okres(
             ].append(
                 {
                     **w,
-
-                    "kraj_id":
-                        kraj,
-
-                    "cn_id":
-                        cn,
+                    "kraj_id": kraj,
+                    "cn_id": cn,
                 }
             )
 
 
-        stan[
-            "nastepna_strona"
-        ] = (
-            strona + 1
-        )
+        stan.update(
 
+            nastepna_strona=(
+                strona + 1
+            ),
 
-        stan[
-            "liczba_stron"
-        ] = (
-            strona + 1
-        )
+            liczba_stron=(
+                strona + 1
+            ),
 
+            ostatnia_strona_api=(
+                ostatnia_strona
+            ),
 
-        stan[
-            "gotowe"
-        ] = (
-            strona
-            >= ostatnia
-        )
+            wiersze_api=(
+                stan["wiersze_api"]
+                + len(dane)
+            ),
 
+            gotowe=(
+                strona
+                == ostatnia_strona
+            ),
 
-        stan[
-            "data_pobrania"
-        ] = (
-            datetime.now(
-                timezone.utc
-            )
-            .isoformat(
-                timespec="seconds"
-            )
+            data_pobrania=(
+                datetime.now(
+                    timezone.utc
+                ).isoformat(
+                    timespec="seconds"
+                )
+            ),
         )
 
 
@@ -1562,14 +1079,12 @@ def pobierz_okres(
 
 
         print(
-
             f"{etykieta}: "
             f"strona "
             f"{strona + 1}/"
-            f"{ostatnia + 1}, "
-            f"gaz: "
-            f"{len(stan['dane'])}",
-
+            f"{ostatnia_strona + 1}, "
+            f"rekordów gazu: "
+            f"{len(stan['dane'])}.",
             flush=True
         )
 
@@ -1587,28 +1102,25 @@ def aktywna(
     miesiac
 ):
 
-    poczatek = (
-        date(
+    poczatek = date(
+        rok,
+        miesiac or 1,
+        1
+    ).isoformat()
+
+
+    koniec = date(
+
+        rok,
+
+        miesiac or 12,
+
+        calendar.monthrange(
             rok,
-            miesiac or 1,
-            1
-        )
-        .isoformat()
-    )
+            miesiac or 12
+        )[1]
 
-
-    koniec = (
-        date(
-            rok,
-            miesiac or 12,
-
-            calendar.monthrange(
-                rok,
-                miesiac or 12
-            )[1]
-        )
-        .isoformat()
-    )
+    ).isoformat()
 
 
     return (
@@ -1634,7 +1146,7 @@ def aktywna(
 
 
 # ============================================================
-# OPISY SŁOWNIKÓW
+# SŁOWNIKI
 # ============================================================
 
 def opis(
@@ -1661,7 +1173,7 @@ def opis(
 
 
 # ============================================================
-# CSV
+# GENEROWANIE CSV
 # ============================================================
 
 def wiersze_csv(
@@ -1676,12 +1188,10 @@ def wiersze_csv(
             "kraje"
         ].items(),
 
-        key=lambda x:
-            x[1]
-            .get(
-                "nazwa-pozycja",
-                ""
-            )
+        key=lambda kv:
+            kv[1][
+                "nazwa-pozycja"
+            ]
     )
 
 
@@ -1691,22 +1201,19 @@ def wiersze_csv(
             "towary"
         ].items(),
 
-        key=lambda x:
-            x[1]
-            .get(
-                "symbol",
-                ""
-            )
+        key=lambda kv:
+            kv[1][
+                "symbol"
+            ]
     )
 
 
     for stan in stany:
 
+
         if (
             (
-                stan[
-                    "miesiac"
-                ]
+                stan["miesiac"]
                 == 0
             )
             != roczne
@@ -1715,23 +1222,29 @@ def wiersze_csv(
             continue
 
 
-        rekordy = {
+        rekordy = {}
 
-            (
-                w[
-                    "kraj_id"
-                ],
-                w[
-                    "cn_id"
-                ]
-            ):
-                w
 
-            for w
-            in stan[
-                "dane"
-            ]
-        }
+        for w in stan["dane"]:
+
+            klucz = (
+                w["kraj_id"],
+                w["cn_id"]
+            )
+
+
+            if klucz in rekordy:
+
+                raise RuntimeError(
+                    f"Duplikat kraj/CN "
+                    f"dla {stan['okres']}: "
+                    f"{klucz}"
+                )
+
+
+            rekordy[
+                klucz
+            ] = w
 
 
         for (
@@ -1742,12 +1255,8 @@ def wiersze_csv(
 
             if not aktywna(
                 kraj,
-                stan[
-                    "rok"
-                ],
-                stan[
-                    "miesiac"
-                ]
+                stan["rok"],
+                stan["miesiac"]
             ):
 
                 continue
@@ -1761,32 +1270,24 @@ def wiersze_csv(
 
                 if not aktywna(
                     cn,
-                    stan[
-                        "rok"
-                    ],
-                    stan[
-                        "miesiac"
-                    ]
+                    stan["rok"],
+                    stan["miesiac"]
                 ):
 
                     continue
 
 
-                w = (
-                    rekordy.get(
-                        (
-                            kraj_id,
-                            cn_id
-                        ),
-                        {}
-                    )
+                w = rekordy.get(
+                    (
+                        kraj_id,
+                        cn_id
+                    ),
+                    {}
                 )
 
 
-                wartosc = (
-                    w.get(
-                        "wartosc"
-                    )
+                wartosc = w.get(
+                    "wartosc"
                 )
 
 
@@ -1849,28 +1350,21 @@ def wiersze_csv(
                 yield {
 
                     "okres":
-                        stan[
-                            "okres"
-                        ],
+                        stan["okres"],
 
                     "rok":
-                        stan[
-                            "rok"
-                        ],
+                        stan["rok"],
 
                     "miesiac":
                         (
-                            stan[
-                                "miesiac"
-                            ]
+                            stan["miesiac"]
                             or ""
                         ),
 
                     "kraj":
-                        kraj.get(
-                            "nazwa-pozycja",
-                            ""
-                        ),
+                        kraj[
+                            "nazwa-pozycja"
+                        ],
 
                     "kod_kraju":
                         kraj.get(
@@ -1896,23 +1390,20 @@ def wiersze_csv(
                         ),
 
                     "kod_cn":
-                        cn.get(
-                            "symbol",
-                            ""
-                        ),
+                        cn[
+                            "symbol"
+                        ],
 
                     "towar":
-                        cn.get(
-                            "nazwa-pozycja",
-                            ""
-                        ),
+                        cn[
+                            "nazwa-pozycja"
+                        ],
 
                     "wartosc":
                         (
                             ""
 
-                            if wartosc
-                            is None
+                            if wartosc is None
 
                             else
 
@@ -1923,8 +1414,7 @@ def wiersze_csv(
                                     )
                                 ),
                                 "f"
-                            )
-                            .replace(
+                            ).replace(
                                 ".",
                                 ","
                             )
@@ -1941,9 +1431,7 @@ def wiersze_csv(
 
                     "flaga_gus":
                         opis(
-                            meta[
-                                "flagi"
-                            ],
+                            meta["flagi"],
                             w.get(
                                 "id-flaga"
                             )
@@ -1951,9 +1439,7 @@ def wiersze_csv(
 
                     "tajnosc_gus":
                         opis(
-                            meta[
-                                "tajnosc"
-                            ],
+                            meta["tajnosc"],
                             w.get(
                                 "id-tajnosci"
                             )
@@ -1961,9 +1447,7 @@ def wiersze_csv(
 
                     "brak_wartosci_gus":
                         opis(
-                            meta[
-                                "braki"
-                            ],
+                            meta["braki"],
                             w.get(
                                 "id-brak-wartosci"
                             )
@@ -1995,7 +1479,7 @@ def wiersze_csv(
 
 
 # ============================================================
-# ZAPIS WYNIKÓW
+# EKSPORT PLIKÓW
 # ============================================================
 
 def eksportuj(
@@ -2059,15 +1543,6 @@ def eksportuj(
 
 def main():
 
-    # ========================================================
-    # KLUCZ API
-    # ========================================================
-
-    klient = KlientGUS(
-        KLUCZ_API
-    )
-
-
     parser = argparse.ArgumentParser(
         description=__doc__
     )
@@ -2086,17 +1561,19 @@ def main():
         type=int,
         default=(
             ROK_DO
-            or
-            date.today().year
+            or date.today().year
         ),
         dest="rok_do"
     )
 
 
+    # ========================================================
+    # KATALOG - DZIAŁA W .PY I JUPYTERZE
+    # ========================================================
+
     if "__file__" in globals():
 
         katalog_bazowy = (
-
             Path(
                 __file__
             )
@@ -2106,7 +1583,6 @@ def main():
 
     else:
 
-        # Jupyter
         katalog_bazowy = (
             Path.cwd()
         )
@@ -2126,22 +1602,16 @@ def main():
 
 
     parser.add_argument(
-
         "--odswiez",
-
         action="store_true"
     )
 
 
-    # Jupyter przekazuje:
-    # -f kernel-xxxxx.json
-    #
-    # dlatego używamy parse_known_args.
+    # ========================================================
+    # JUPYTER
+    # ========================================================
 
-    if (
-        "ipykernel"
-        in sys.modules
-    ):
+    if "ipykernel" in sys.modules:
 
         args, _ = (
             parser.parse_known_args()
@@ -2154,6 +1624,10 @@ def main():
         )
 
 
+    # ========================================================
+    # WALIDACJA
+    # ========================================================
+
     if not (
         2004
         <= args.rok_od
@@ -2161,9 +1635,18 @@ def main():
         <= date.today().year
     ):
 
-        raise RuntimeError(
+        parser.error(
             "Nieprawidłowy zakres lat."
         )
+
+
+    # ========================================================
+    # API
+    # ========================================================
+
+    klient = KlientGUS(
+        KLUCZ_API
+    )
 
 
     folder = (
@@ -2185,38 +1668,13 @@ def main():
 
 
     print(
-        "Sprawdzam połączenie z API GUS...",
+        "Pobieram metadane GUS...",
         flush=True
     )
 
 
-    # To od razu pokaże,
-    # czy KLUCZ_API działa.
-
-    wersja = klient.pobierz(
-        "version"
-    )
-
-
-    print(
-        "Połączenie z GUS OK."
-    )
-
-
-    print(
-        "Wersja API:",
-        wersja
-    )
-
-
-    # ========================================================
-    # METADANE
-    # ========================================================
-
-    meta = (
-        wczytaj_metadane(
-            klient
-        )
+    meta = wczytaj_metadane(
+        klient
     )
 
 
@@ -2230,59 +1688,40 @@ def main():
 
 
     print(
-        "\nID zmiennej:",
-        meta[
-            "id_zmiennej"
-        ]
+        "\nEksport gazu z Polski."
     )
 
 
     print(
-        "ID przekroju:",
-        meta[
-            "id_przekroju"
-        ]
+        "Pobierane kody:"
     )
 
 
-    print(
-        "\nPobierane towary:"
-    )
-
-
-    for x in sorted(
+    for cn in sorted(
 
         meta[
             "towary"
         ].values(),
 
         key=lambda x:
-            x.get(
-                "symbol",
-                ""
-            )
+            x["symbol"]
     ):
 
         print(
-            " ",
-            x.get(
-                "symbol"
-            ),
-            "-",
-            x.get(
-                "nazwa-pozycja"
-            )
+            f"  "
+            f"{cn['symbol']} - "
+            f"{cn['nazwa-pozycja']}"
         )
 
 
     # ========================================================
-    # ZADANIA
+    # LISTA OKRESÓW
     # ========================================================
 
-    dzis = (
-        date.today()
-    )
+    stany = []
+    raport = []
 
+    dzis = date.today()
 
     zadania = []
 
@@ -2291,6 +1730,7 @@ def main():
         args.rok_od,
         args.rok_do + 1
     ):
+
 
         for miesiac in (
             list(
@@ -2303,19 +1743,17 @@ def main():
         ):
 
 
+            # pomijamy bieżący miesiąc
+            # i bieżący rok roczny
+
             if (
                 rok
                 == dzis.year
 
-                and
-
-                (
+                and (
                     miesiac == 0
-
                     or
-
-                    miesiac
-                    >= dzis.month
+                    miesiac >= dzis.month
                 )
             ):
 
@@ -2351,9 +1789,15 @@ def main():
             ]
 
 
+            if not lata:
+
+                raise RuntimeError(
+                    "Nie udało się rozpoznać "
+                    "zakresu lat."
+                )
+
+
             if (
-                lata
-                and
                 min(lata)
                 <= rok
                 <= max(lata)
@@ -2365,20 +1809,6 @@ def main():
                         miesiac
                     )
                 )
-
-
-    print(
-        "\nLiczba okresów "
-        "do sprawdzenia:",
-        len(
-            zadania
-        )
-    )
-
-
-    stany = []
-
-    raport = []
 
 
     # ========================================================
@@ -2403,25 +1833,15 @@ def main():
                 "okres":
                     (
                         f"{rok} M{miesiac}"
-
                         if miesiac
-
-                        else
-
-                        str(
-                            rok
-                        )
+                        else str(rok)
                     ),
 
                 "typ_okresu":
                     (
                         "miesieczny"
-
                         if miesiac
-
-                        else
-
-                        "roczny"
+                        else "roczny"
                     ),
 
                 "status":
@@ -2445,16 +1865,14 @@ def main():
 
             try:
 
-                stan = (
-                    pobierz_okres(
+                stan = pobierz_okres(
 
-                        klient,
-                        meta,
-                        rok,
-                        miesiac,
-                        cache,
-                        args.odswiez
-                    )
+                    klient,
+                    meta,
+                    rok,
+                    miesiac,
+                    cache,
+                    args.odswiez
                 )
 
 
@@ -2474,8 +1892,8 @@ def main():
                 wpis[
                     "uwagi"
                 ] = (
-                    "Okres nie został "
-                    "pobrany kompletnie."
+                    "Okres niekompletny. "
+                    "Uruchom ponownie."
                 )
 
                 raise
@@ -2492,8 +1910,9 @@ def main():
                 wpis[
                     "uwagi"
                 ] = (
-                    "Brak opublikowanych "
-                    "danych."
+                    "Brak danych w API. "
+                    "Nie oznacza to "
+                    "zerowego eksportu."
                 )
 
 
@@ -2525,18 +1944,14 @@ def main():
 
 
             # zapis po każdym roku
-
             if (
-
                 indeks
                 == len(
                     zadania
                 )
                 - 1
 
-                or
-
-                (
+                or (
                     zadania[
                         indeks + 1
                     ][0]
@@ -2564,6 +1979,10 @@ def main():
             )
 
 
+    # ========================================================
+    # PODSUMOWANIE
+    # ========================================================
+
     if not stany:
 
         raise RuntimeError(
@@ -2573,7 +1992,7 @@ def main():
 
 
     print(
-        "\n============================"
+        "\n=========================="
     )
 
     print(
@@ -2581,13 +2000,18 @@ def main():
     )
 
     print(
-        "============================"
+        "=========================="
     )
 
 
     print(
-        "Folder:",
-        folder
+        f"Kompletnych okresów: "
+        f"{len(stany)}"
+    )
+
+
+    print(
+        f"Folder: {folder}"
     )
 
 
@@ -2633,11 +2057,15 @@ if __name__ == "__main__":
         )
 
 
-    except Exception as exc:
+    except (
+        RuntimeError,
+        OSError,
+        ValueError,
+        KeyError
+    ) as exc:
 
         print(
-            "\nBŁĄD:",
-            exc,
+            f"\nBŁĄD: {exc}",
             file=sys.stderr
         )
 
