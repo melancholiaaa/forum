@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       refresh_all:
-        description: "Pobierz ponownie wszystkie okresy"
+        description: "Pobierz ponownie wszystkie dane od 2018"
         required: false
         default: false
         type: boolean
@@ -14,16 +14,18 @@ on:
     # Codziennie o 16:15 UTC
     - cron: "15 16 * * *"
 
+
 permissions:
   contents: write
 
+
 concurrency:
-  group: gus-gas-export-update
+  group: gus-gaz-export-update
   cancel-in-progress: false
 
 
 jobs:
-  update-gus-gas-export:
+  update-gus-gaz-export:
 
     runs-on: ubuntu-latest
 
@@ -32,11 +34,19 @@ jobs:
 
     steps:
 
+      # ======================================================
+      # REPOZYTORIUM
+      # ======================================================
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+
+      # ======================================================
+      # PYTHON
+      # ======================================================
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -44,8 +54,9 @@ jobs:
           python-version: "3.11"
 
 
-      # Cache nie musi być commitowany do repo.
-      # GitHub przechowuje go między uruchomieniami workflow.
+      # ======================================================
+      # CACHE GUS
+      # ======================================================
 
       - name: Restore GUS cache
         uses: actions/cache@v4
@@ -56,43 +67,39 @@ jobs:
             gus-gaz-export-${{ runner.os }}-
 
 
+      # ======================================================
+      # URUCHOMIENIE SKRYPTU
+      # ======================================================
+
       - name: Download GUS gas export data
-        env:
-          GUS_DBW_API_KEY: ${{ secrets.GUS_DBW_API_KEY }}
-
         shell: bash
-
         run: |
-
-          if [ -z "$GUS_DBW_API_KEY" ]; then
-
-            echo "Brak sekretu GUS_DBW_API_KEY."
-            exit 1
-
-          fi
-
 
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
              [ "${{ inputs.refresh_all }}" = "true" ]; then
 
-            echo "Pełne odświeżenie danych."
+            echo "Pełne odświeżenie danych od 2018."
 
             python gus_gaz_export_api.py --odswiez
 
           else
 
-            echo "Standardowa aktualizacja z cache."
+            echo "Standardowa aktualizacja danych."
 
             python gus_gaz_export_api.py
 
           fi
 
 
+      # ======================================================
+      # KONTROLA PLIKÓW
+      # ======================================================
+
       - name: Show generated files
         shell: bash
         run: |
 
-          echo "Pliki wynikowe:"
+          echo "Wygenerowane pliki:"
 
           find gus_gaz_export \
             -maxdepth 1 \
@@ -100,14 +107,15 @@ jobs:
             -print
 
 
+      # ======================================================
+      # COMMIT
+      # ======================================================
+
       - name: Commit updated data
         shell: bash
-
         run: |
 
-          git config \
-            user.name \
-            "github-actions[bot]"
+          git config user.name "github-actions[bot]"
 
           git config \
             user.email \
