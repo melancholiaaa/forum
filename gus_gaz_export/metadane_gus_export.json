@@ -1,0 +1,3037 @@
+{
+  "zrodlo": "GUS, DBW, CC BY 4.0",
+  "api": "https://api-dbw.stat.gov.pl/api/1.2.0/",
+  "zmienna": {
+    "id-zmienna": 220,
+    "nazwa": "Eksport towarów",
+    "nazwa-skrocona": "Eksport towarów",
+    "tagi": [
+      {
+        "id-tag": 234,
+        "nazwa-tag": "wymiana towarowa"
+      },
+      {
+        "id-tag": 239,
+        "nazwa-tag": "wymiana"
+      },
+      {
+        "id-tag": 245,
+        "nazwa-tag": "wymiana międzynarodowa"
+      },
+      {
+        "id-tag": 247,
+        "nazwa-tag": "handel zagraniczny"
+      }
+    ],
+    "pojecia": [
+      {
+        "id-pojecie": 746,
+        "nazwa-pojecie": "Eksport towarów",
+        "definicja": "<p>Dostarczanie towarów za granicę niezależnie od sposobu wyprowadzenia z terytorium ekonomicznego kraju.</p>",
+        "uwagi": "Zakres eksportu towarów regulują zalecenia Departamentu Statystyki ONZ.",
+        "data-poczatku-pojecie": "1999-07-01",
+        "data-konca-pojecie": "9999-12-31"
+      }
+    ],
+    "wyjasnienia-metodologiczne": {
+      "wyjasnienia-metodologiczne-tresc": "<p>\n\tNomenklatura Scalona CN podlega corocznej weryfikacji, w związku z tym mogą zachodzić na przestrzeni lat zmiany, które niekiedy uniemożliwiają pokazanie wiarygodnie informacji w długim szeregu czasowym. Dlatego zalecamy, aby przy analizie danych zwracać uwagę, czy nie zaszły w danym, bieżącym dla analizy roku zmiany na badanym towarze CN, np. w uzupełniającej jednostce miary (ujm).</p>\n<p>\n\tBaza prezentuje zawsze opis towarów dla najbardziej aktualnej nomenklatury scalonej CN. Dla przykładu ujm przy kodzie CN 44111310 do 2011 r. była prezentowana jako m<sup>2</sup>, a od 2012 do obecnego okresu jako m<sup>3</sup>. W opisie ww. jednostka jest powiązana z opisem towaru na bieżący rok nomenklatury scalonej CN, czyli m<sup>3</sup>.</p>\n\n\n",
+      "notki": []
+    },
+    "przekroje": [
+      {
+        "id-przekroj": 1115,
+        "nazwa-przekroj": "Polska; Kraje towary; SITC Rev.3",
+        "szereg-czasowy": "2004 - 2006",
+        "id-czestotliwosc": 1,
+        "nazwa-czestotliwosc": "Rok",
+        "aktualizacja-ostatnia": "2022-12-23"
+      },
+      {
+        "id-przekroj": 1115,
+        "nazwa-przekroj": "Polska; Kraje towary; SITC Rev.3",
+        "szereg-czasowy": "2004 - 2006",
+        "id-czestotliwosc": 3,
+        "nazwa-czestotliwosc": "Miesiąc",
+        "aktualizacja-ostatnia": "2023-01-20"
+      },
+      {
+        "id-przekroj": 1116,
+        "nazwa-przekroj": "Polska; Kraje towary; SITC Rev.4",
+        "szereg-czasowy": "2007 - 2025",
+        "id-czestotliwosc": 1,
+        "nazwa-czestotliwosc": "Rok",
+        "aktualizacja-ostatnia": "2026-07-31"
+      },
+      {
+        "id-przekroj": 1116,
+        "nazwa-przekroj": "Polska; Kraje towary; SITC Rev.4",
+        "szereg-czasowy": "2007 - 2026",
+        "id-czestotliwosc": 3,
+        "nazwa-czestotliwosc": "Miesiąc",
+        "aktualizacja-ostatnia": "2026-09-15",
+        "aktualizacja-kolejna": "2026-10-14"
+      },
+      {
+        "id-przekroj": 1136,
+        "nazwa-przekroj": "Polska; Kraje towary; CN",
+        "szereg-czasowy": "2004 - 2025",
+        "id-czestotliwosc": 1,
+        "nazwa-czestotliwosc": "Rok",
+        "aktualizacja-ostatnia": "2026-07-31"
+      },
+      {
+        "id-przekroj": 1136,
+        "nazwa-przekroj": "Polska; Kraje towary; CN",
+        "szereg-czasowy": "2004 - 2026",
+        "id-czestotliwosc": 3,
+        "nazwa-czestotliwosc": "Miesiąc",
+        "aktualizacja-ostatnia": "2026-09-15",
+        "aktualizacja-kolejna": "2026-10-14"
+      },
+      {
+        "id-przekroj": 1144,
+        "nazwa-przekroj": "Polska; Ugrupowania",
+        "szereg-czasowy": "2004 - 2025",
+        "id-czestotliwosc": 1,
+        "nazwa-czestotliwosc": "Rok",
+        "aktualizacja-ostatnia": "2026-07-31"
+      },
+      {
+        "id-przekroj": 1144,
+        "nazwa-przekroj": "Polska; Ugrupowania",
+        "szereg-czasowy": "2004 - 2026",
+        "id-czestotliwosc": 3,
+        "nazwa-czestotliwosc": "Miesiąc",
+        "aktualizacja-ostatnia": "2026-09-15",
+        "aktualizacja-kolejna": "2026-10-14"
+      },
+      {
+        "id-przekroj": 1194,
+        "nazwa-przekroj": "Polska; Kraje towary; PKWiU2004",
+        "szereg-czasowy": "2004 - 2011",
+        "id-czestotliwosc": 1,
+        "nazwa-czestotliwosc": "Rok",
+        "aktualizacja-ostatnia": "2023-02-07"
+      },
+      {
+        "id-przekroj": 1194,
+        "nazwa-przekroj": "Polska; Kraje towary; PKWiU2004",
+        "szereg-czasowy": "2004 - 2011",
+        "id-czestotliwosc": 3,
+        "nazwa-czestotliwosc": "Miesiąc",
+        "aktualizacja-ostatnia": "2023-02-07"
+      },
+      {
+        "id-przekroj": 1198,
+        "nazwa-przekroj": "Polska; Kraje towary; PKWiU2015",
+        "szereg-czasowy": "2016 - 2025",
+        "id-czestotliwosc": 1,
+        "nazwa-czestotliwosc": "Rok",
+        "aktualizacja-ostatnia": "2026-07-31"
+      },
+      {
+        "id-przekroj": 1198,
+        "nazwa-przekroj": "Polska; Kraje towary; PKWiU2015",
+        "szereg-czasowy": "2016 - 2026",
+        "id-czestotliwosc": 3,
+        "nazwa-czestotliwosc": "Miesiąc",
+        "aktualizacja-ostatnia": "2026-09-15",
+        "aktualizacja-kolejna": "2026-10-14"
+      },
+      {
+        "id-przekroj": 1199,
+        "nazwa-przekroj": "Polska; Kraje towary; PKWiU2008",
+        "szereg-czasowy": "2008 - 2017",
+        "id-czestotliwosc": 1,
+        "nazwa-czestotliwosc": "Rok",
+        "aktualizacja-ostatnia": "2023-03-07"
+      },
+      {
+        "id-przekroj": 1199,
+        "nazwa-przekroj": "Polska; Kraje towary; PKWiU2008",
+        "szereg-czasowy": "2008 - 2017",
+        "id-czestotliwosc": 3,
+        "nazwa-czestotliwosc": "Miesiąc",
+        "aktualizacja-ostatnia": "2023-03-08"
+      },
+      {
+        "id-przekroj": 1243,
+        "nazwa-przekroj": "Polska; Kraje towary; BEC przeznaczenie",
+        "szereg-czasowy": "2004 - 2025",
+        "id-czestotliwosc": 1,
+        "nazwa-czestotliwosc": "Rok",
+        "aktualizacja-ostatnia": "2026-07-31"
+      },
+      {
+        "id-przekroj": 1243,
+        "nazwa-przekroj": "Polska; Kraje towary; BEC przeznaczenie",
+        "szereg-czasowy": "2004 - 2026",
+        "id-czestotliwosc": 3,
+        "nazwa-czestotliwosc": "Miesiąc",
+        "aktualizacja-ostatnia": "2026-09-15",
+        "aktualizacja-kolejna": "2026-10-14"
+      },
+      {
+        "id-przekroj": 1246,
+        "nazwa-przekroj": "Polska; Kraje towary; BEC rozdysponowanie",
+        "szereg-czasowy": "2004 - 2025",
+        "id-czestotliwosc": 1,
+        "nazwa-czestotliwosc": "Rok",
+        "aktualizacja-ostatnia": "2026-07-31"
+      },
+      {
+        "id-przekroj": 1246,
+        "nazwa-przekroj": "Polska; Kraje towary; BEC rozdysponowanie",
+        "szereg-czasowy": "2004 - 2026",
+        "id-czestotliwosc": 3,
+        "nazwa-czestotliwosc": "Miesiąc",
+        "aktualizacja-ostatnia": "2026-09-15",
+        "aktualizacja-kolejna": "2026-10-14"
+      },
+      {
+        "id-przekroj": 1434,
+        "nazwa-przekroj": "Polska; Kraje towary; CN - uzupełniająca jednostka miary",
+        "szereg-czasowy": "2004 - 2025",
+        "id-czestotliwosc": 1,
+        "nazwa-czestotliwosc": "Rok",
+        "aktualizacja-ostatnia": "2026-07-31"
+      },
+      {
+        "id-przekroj": 1434,
+        "nazwa-przekroj": "Polska; Kraje towary; CN - uzupełniająca jednostka miary",
+        "szereg-czasowy": "2004 - 2026",
+        "id-czestotliwosc": 3,
+        "nazwa-czestotliwosc": "Miesiąc",
+        "aktualizacja-ostatnia": "2026-09-15",
+        "aktualizacja-kolejna": "2026-10-14"
+      }
+    ],
+    "zestawy": [
+      {
+        "id-zestaw": 653,
+        "symbol-zestaw": "AIS",
+        "nazwa-zestaw": "Automatyczny System Importu",
+        "id-gestor": 70,
+        "nazwa-gestor": "Ministerstwo Finansów"
+      },
+      {
+        "id-zestaw": 687,
+        "symbol-zestaw": "AIS/INTRASTAT",
+        "nazwa-zestaw": "Podsystem INTRASTAT",
+        "id-gestor": 70,
+        "nazwa-gestor": "Ministerstwo Finansów"
+      },
+      {
+        "id-zestaw": 742,
+        "symbol-zestaw": "RCSP",
+        "nazwa-zestaw": "Rejestr cywilnych statków powietrznych",
+        "id-gestor": 123,
+        "nazwa-gestor": "Urząd Lotnictwa Cywilnego"
+      },
+      {
+        "id-zestaw": 743,
+        "nazwa-zestaw": "Rejestr okrętowy",
+        "id-gestor": 55,
+        "nazwa-gestor": "izba morska"
+      },
+      {
+        "id-zestaw": 800,
+        "nazwa-zestaw": "System informacyjny dotyczący zakupu/sprzedaży ryb",
+        "id-gestor": 77,
+        "nazwa-gestor": "Ministerstwo Rolnictwa i Rozwoju Wsi"
+      },
+      {
+        "id-zestaw": 1074,
+        "symbol-zestaw": "AES",
+        "nazwa-zestaw": "Automatyczny System Eksportu",
+        "id-gestor": 70,
+        "nazwa-gestor": "Ministerstwo Finansów"
+      },
+      {
+        "id-zestaw": 1082,
+        "nazwa-zestaw": "System informacyjny zawierający dane z deklaracji statystycznych dotyczących odprawy scentralizowanej realizowanej pomiędzy co najmniej dwoma państwami UE",
+        "id-gestor": 70,
+        "nazwa-gestor": "Ministerstwo Finansów"
+      },
+      {
+        "id-zestaw": 1234,
+        "nazwa-zestaw": "System informacyjny dotyczący obrotów energią elektryczną i gazem",
+        "id-gestor": 786,
+        "nazwa-gestor": "Ministerstwo Energii"
+      },
+      {
+        "id-zestaw": 1425,
+        "nazwa-zestaw": "System AIS/INTRASTAT",
+        "id-gestor": 70,
+        "nazwa-gestor": "Ministerstwo Finansów"
+      }
+    ],
+    "badania": [
+      {
+        "id-badanie": 211,
+        "symbol-badanie": "1.51.08",
+        "temat-badanie": "Realizacja międzynarodowego handlu towarami w wyrażeniu ilościowo-wartościowym",
+        "badanie-cel": "Celem badania jest dostarczenie informacji o wymianie towarowej Polski z wszystkimi krajami oraz ocena skali rozwoju wymiany międzynarodowej, powiązań i poziomu zaangażowania Polski w gospodarkę światową. Wyniki badania są wykorzystywane do opracowania szeroko rozumianej informacji o wielkości, kierunkach i głównych partnerach wymiany towarowej Polski z wszystkimi krajami, do sporządzania miesięcznych informacji o sytuacji gospodarczej kraju, jak również do kwartalnych i rocznych opracowań z zakresu rachunków narodowych."
+      }
+    ],
+    "akty-prawne": [
+      {
+        "id-akt": 1815,
+        "tytul-akt": "rozporządzenie Parlamentu Europejskiego i Rady (UE) 2019/2152 z dnia 27 listopada 2019 r. w sprawie europejskiej statystyki gospodarczej uchylające 10 aktów prawnych w dziedzinie statystyki gospodarczej",
+        "adres-publikacyjny": "(Dz. Urz. UE L 327 z 17.12.2019, str. 1, z późn. zm.)"
+      }
+    ],
+    "jednostki": [
+      {
+        "id-jednostka": 797,
+        "nazwa-jednostki": "GUS – Departament Cen i Usług"
+      }
+    ]
+  },
+  "kraje": {
+    "6649670": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649670,
+      "nazwa-pozycja": "Antarktyda",
+      "symbol": "AQ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649672": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649672,
+      "nazwa-pozycja": "Samoa",
+      "symbol": "WS",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649673": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649673,
+      "nazwa-pozycja": "Wallis i Futuna",
+      "symbol": "WF",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649674": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649674,
+      "nazwa-pozycja": "Tuvalu",
+      "symbol": "TV",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649675": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649675,
+      "nazwa-pozycja": "Tonga",
+      "symbol": "TO",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649676": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649676,
+      "nazwa-pozycja": "Tokelau",
+      "symbol": "TK",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649678": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649678,
+      "nazwa-pozycja": "Pitcairn",
+      "symbol": "PN",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649679": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649679,
+      "nazwa-pozycja": "Papua-Nowa Gwinea",
+      "symbol": "PG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649680": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649680,
+      "nazwa-pozycja": "Palau",
+      "symbol": "PW",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649681": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649681,
+      "nazwa-pozycja": "Wyspy Marshalla",
+      "symbol": "MH",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649682": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649682,
+      "nazwa-pozycja": "Mikronezja",
+      "symbol": "FM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649684": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649684,
+      "nazwa-pozycja": "Mariany Północne",
+      "symbol": "MP",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649685": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649685,
+      "nazwa-pozycja": "Norfolk",
+      "symbol": "NF",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649686": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649686,
+      "nazwa-pozycja": "Niue",
+      "symbol": "NU",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649687": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649687,
+      "nazwa-pozycja": "Nowa Zelandia",
+      "symbol": "NZ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649688": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649688,
+      "nazwa-pozycja": "Vanuatu",
+      "symbol": "VU",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649689": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649689,
+      "nazwa-pozycja": "Nowa Kaledonia",
+      "symbol": "NC",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649690": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649690,
+      "nazwa-pozycja": "Nauru",
+      "symbol": "NR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649691": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649691,
+      "nazwa-pozycja": "Wyspy Heard i McDonalda",
+      "symbol": "HM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649692": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649692,
+      "nazwa-pozycja": "Guam",
+      "symbol": "GU",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649694": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649694,
+      "nazwa-pozycja": "Kiribati",
+      "symbol": "KI",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649695": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649695,
+      "nazwa-pozycja": "Polinezja Francuska",
+      "symbol": "PF",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649696": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649696,
+      "nazwa-pozycja": "Fidżi",
+      "symbol": "FJ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649697": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649697,
+      "nazwa-pozycja": "Wyspy Cooka",
+      "symbol": "CK",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649698": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649698,
+      "nazwa-pozycja": "Wyspy Salomona",
+      "symbol": "SB",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649699": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649699,
+      "nazwa-pozycja": "Australia",
+      "symbol": "AU",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649700": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649700,
+      "nazwa-pozycja": "Samoa Amerykańskie",
+      "symbol": "AS",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649701": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649701,
+      "nazwa-pozycja": "Zambia",
+      "symbol": "ZM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649702": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649702,
+      "nazwa-pozycja": "Burkina Faso",
+      "symbol": "BF",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649703": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649703,
+      "nazwa-pozycja": "Tanzania",
+      "symbol": "TZ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649704": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649704,
+      "nazwa-pozycja": "Egipt",
+      "symbol": "EG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649705": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649705,
+      "nazwa-pozycja": "Uganda",
+      "symbol": "UG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649706": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649706,
+      "nazwa-pozycja": "Tunezja",
+      "symbol": "TN",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649707": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649707,
+      "nazwa-pozycja": "Togo",
+      "symbol": "TG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649709": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649709,
+      "nazwa-pozycja": "Sudan Południowy",
+      "symbol": "SS",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649710": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649710,
+      "nazwa-pozycja": "Sudan",
+      "symbol": "SD",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649711": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649711,
+      "nazwa-pozycja": "Sahara Zachodnia",
+      "symbol": "EH",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649712": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649712,
+      "nazwa-pozycja": "Zimbabwe",
+      "symbol": "ZW",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649714": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649714,
+      "nazwa-pozycja": "Somalia",
+      "symbol": "SO",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649715": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649715,
+      "nazwa-pozycja": "Sierra Leone",
+      "symbol": "SL",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649716": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649716,
+      "nazwa-pozycja": "Seszele",
+      "symbol": "SC",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649717": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649717,
+      "nazwa-pozycja": "Senegal",
+      "symbol": "SN",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649718": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649718,
+      "nazwa-pozycja": "Wyspy Świętego Tomasza i Książęca",
+      "symbol": "ST",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649720": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649720,
+      "nazwa-pozycja": "Wyspa Świętej Heleny, Wyspa Wniebowstąpienia i Tristan da Cunha",
+      "symbol": "SH",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649721": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649721,
+      "nazwa-pozycja": "Rwanda",
+      "symbol": "RW",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649723": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649723,
+      "nazwa-pozycja": "Gwinea Bissau",
+      "symbol": "GW",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649724": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649724,
+      "nazwa-pozycja": "Nigeria",
+      "symbol": "NG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649725": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649725,
+      "nazwa-pozycja": "Niger",
+      "symbol": "NE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649726": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649726,
+      "nazwa-pozycja": "Namibia",
+      "symbol": "NA",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649727": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649727,
+      "nazwa-pozycja": "Mozambik",
+      "symbol": "MZ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649728": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649728,
+      "nazwa-pozycja": "Maroko",
+      "symbol": "MA",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649729": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649729,
+      "nazwa-pozycja": "Mauritius",
+      "symbol": "MU",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649730": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649730,
+      "nazwa-pozycja": "Mauretania",
+      "symbol": "MR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649731": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649731,
+      "nazwa-pozycja": "Mali",
+      "symbol": "ML",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649732": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649732,
+      "nazwa-pozycja": "Malawi",
+      "symbol": "MW",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649733": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649733,
+      "nazwa-pozycja": "Madagaskar",
+      "symbol": "MG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649734": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649734,
+      "nazwa-pozycja": "Libia",
+      "symbol": "LY",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649735": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649735,
+      "nazwa-pozycja": "Liberia",
+      "symbol": "LR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649736": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649736,
+      "nazwa-pozycja": "Lesotho",
+      "symbol": "LS",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649737": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649737,
+      "nazwa-pozycja": "Kenia",
+      "symbol": "KE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649738": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649738,
+      "nazwa-pozycja": "Wybrzeże Kości Słoniowej",
+      "symbol": "CI",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649739": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649739,
+      "nazwa-pozycja": "Gwinea",
+      "symbol": "GN",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649740": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649740,
+      "nazwa-pozycja": "Ghana",
+      "symbol": "GH",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649742": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649742,
+      "nazwa-pozycja": "Gabon",
+      "symbol": "GA",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649743": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649743,
+      "nazwa-pozycja": "Dżibuti",
+      "symbol": "DJ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649744": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649744,
+      "nazwa-pozycja": "Erytrea",
+      "symbol": "ER",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649745": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649745,
+      "nazwa-pozycja": "Etiopia",
+      "symbol": "ET",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649746": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649746,
+      "nazwa-pozycja": "Gwinea Równikowa",
+      "symbol": "GQ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649747": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649747,
+      "nazwa-pozycja": "Benin",
+      "symbol": "BJ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649749": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649749,
+      "nazwa-pozycja": "Kongo",
+      "symbol": "CG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649750": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649750,
+      "nazwa-pozycja": "Demokratyczna Republika Konga",
+      "symbol": "CD",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649751": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649751,
+      "nazwa-pozycja": "Majotta",
+      "symbol": "YT",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649752": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649752,
+      "nazwa-pozycja": "Komory",
+      "symbol": "KM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649753": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649753,
+      "nazwa-pozycja": "Czad",
+      "symbol": "TD",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649754": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649754,
+      "nazwa-pozycja": "Republika Środkowoafrykańska",
+      "symbol": "CF",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649756": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649756,
+      "nazwa-pozycja": "Kamerun",
+      "symbol": "CM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649757": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649757,
+      "nazwa-pozycja": "Burundi",
+      "symbol": "BI",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649758": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649758,
+      "nazwa-pozycja": "Wyspa Bouveta",
+      "symbol": "BV",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649759": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649759,
+      "nazwa-pozycja": "Botswana",
+      "symbol": "BW",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649760": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649760,
+      "nazwa-pozycja": "Angola",
+      "symbol": "AO",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649761": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649761,
+      "nazwa-pozycja": "Melilla",
+      "symbol": "XL",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649762": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649762,
+      "nazwa-pozycja": "Ceuta",
+      "symbol": "XC",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649763": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649763,
+      "nazwa-pozycja": "Algieria",
+      "symbol": "DZ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649764": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649764,
+      "nazwa-pozycja": "Wenezuela",
+      "symbol": "VE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649765": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649765,
+      "nazwa-pozycja": "Urugwaj",
+      "symbol": "UY",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649766": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649766,
+      "nazwa-pozycja": "Surinam",
+      "symbol": "SR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649767": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649767,
+      "nazwa-pozycja": "Peru",
+      "symbol": "PE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649768": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649768,
+      "nazwa-pozycja": "Paragwaj",
+      "symbol": "PY",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649769": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649769,
+      "nazwa-pozycja": "Bonaire, Sint Eustatius i Saba",
+      "symbol": "BQ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649770": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649770,
+      "nazwa-pozycja": "Aruba",
+      "symbol": "AW",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649772": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649772,
+      "nazwa-pozycja": "Gujana",
+      "symbol": "GY",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649774": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649774,
+      "nazwa-pozycja": "Georgia Południowa i Sandwich Południowy",
+      "symbol": "GS",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649775": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649775,
+      "nazwa-pozycja": "Falklandy",
+      "symbol": "FK",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649776": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649776,
+      "nazwa-pozycja": "Ekwador",
+      "symbol": "EC",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649777": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649777,
+      "nazwa-pozycja": "Kolumbia",
+      "symbol": "CO",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649778": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649778,
+      "nazwa-pozycja": "Chile",
+      "symbol": "CL",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649779": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649779,
+      "nazwa-pozycja": "Brazylia",
+      "symbol": "BR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649780": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649780,
+      "nazwa-pozycja": "Boliwia",
+      "symbol": "BO",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649781": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649781,
+      "nazwa-pozycja": "Argentyna",
+      "symbol": "AR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649782": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649782,
+      "nazwa-pozycja": "Wyspy Dziewicze Stanów Zjednoczonych",
+      "symbol": "VI",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649783": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649783,
+      "nazwa-pozycja": "Stany Zjednoczone",
+      "symbol": "US",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649785": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649785,
+      "nazwa-pozycja": "Trynidad i Tobago",
+      "symbol": "TT",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649786": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649786,
+      "nazwa-pozycja": "Saint Vincent i Grenadyny",
+      "symbol": "VC",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649787": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649787,
+      "nazwa-pozycja": "Saint  Pierre i Miquelon",
+      "symbol": "PM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649789": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649789,
+      "nazwa-pozycja": "Saint Lucia",
+      "symbol": "LC",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649790": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649790,
+      "nazwa-pozycja": "Anguilla",
+      "symbol": "AI",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649791": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649791,
+      "nazwa-pozycja": "Saint Kitts i Nevis",
+      "symbol": "KN",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649794": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649794,
+      "nazwa-pozycja": "Panama",
+      "symbol": "PA",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649795": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649795,
+      "nazwa-pozycja": "Nikaragua",
+      "symbol": "NI",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649798": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649798,
+      "nazwa-pozycja": "Montserrat",
+      "symbol": "MS",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649799": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649799,
+      "nazwa-pozycja": "Meksyk",
+      "symbol": "MX",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649801": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649801,
+      "nazwa-pozycja": "Jamajka",
+      "symbol": "JM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649802": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649802,
+      "nazwa-pozycja": "Honduras",
+      "symbol": "HN",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649803": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649803,
+      "nazwa-pozycja": "Haiti",
+      "symbol": "HT",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649804": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649804,
+      "nazwa-pozycja": "Gwatemala",
+      "symbol": "GT",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649806": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649806,
+      "nazwa-pozycja": "Grenada",
+      "symbol": "GD",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649807": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649807,
+      "nazwa-pozycja": "Grenlandia",
+      "symbol": "GL",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649808": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649808,
+      "nazwa-pozycja": "Salwador",
+      "symbol": "SV",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649809": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649809,
+      "nazwa-pozycja": "Dominika",
+      "symbol": "DM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649810": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649810,
+      "nazwa-pozycja": "Kuba",
+      "symbol": "CU",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649811": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649811,
+      "nazwa-pozycja": "Kostaryka",
+      "symbol": "CR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649812": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649812,
+      "nazwa-pozycja": "Kajmany",
+      "symbol": "KY",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649813": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649813,
+      "nazwa-pozycja": "Kanada",
+      "symbol": "CA",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649814": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649814,
+      "nazwa-pozycja": "Brytyjskie Wyspy Dziewicze",
+      "symbol": "VG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649815": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649815,
+      "nazwa-pozycja": "Belize",
+      "symbol": "BZ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649816": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649816,
+      "nazwa-pozycja": "Bermudy",
+      "symbol": "BM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649817": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649817,
+      "nazwa-pozycja": "Barbados",
+      "symbol": "BB",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649818": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649818,
+      "nazwa-pozycja": "Antigua i Barbuda",
+      "symbol": "AG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649819": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649819,
+      "nazwa-pozycja": "Jemen",
+      "symbol": "YE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649820": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649820,
+      "nazwa-pozycja": "Uzbekistan",
+      "symbol": "UZ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649822": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649822,
+      "nazwa-pozycja": "Turkmenistan",
+      "symbol": "TM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649823": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649823,
+      "nazwa-pozycja": "Zjednoczone Emiraty Arabskie",
+      "symbol": "AE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649824": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649824,
+      "nazwa-pozycja": "Tajlandia",
+      "symbol": "TH",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649826": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649826,
+      "nazwa-pozycja": "Tadżykistan",
+      "symbol": "TJ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649827": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649827,
+      "nazwa-pozycja": "Syria",
+      "symbol": "SY",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649829": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649829,
+      "nazwa-pozycja": "Singapur",
+      "symbol": "SG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649830": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649830,
+      "nazwa-pozycja": "Arabia Saudyjska",
+      "symbol": "SA",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649831": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649831,
+      "nazwa-pozycja": "Katar",
+      "symbol": "QA",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649832": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649832,
+      "nazwa-pozycja": "Timor Wschodni",
+      "symbol": "TL",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649833": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649833,
+      "nazwa-pozycja": "Filipiny",
+      "symbol": "PH",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649834": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649834,
+      "nazwa-pozycja": "Pakistan",
+      "symbol": "PK",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649835": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649835,
+      "nazwa-pozycja": "Nepal",
+      "symbol": "NP",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649836": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649836,
+      "nazwa-pozycja": "Oman",
+      "symbol": "OM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649837": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649837,
+      "nazwa-pozycja": "Mongolia",
+      "symbol": "MN",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649838": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649838,
+      "nazwa-pozycja": "Malediwy",
+      "symbol": "MV",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649839": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649839,
+      "nazwa-pozycja": "Malezja",
+      "symbol": "MY",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649841": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649841,
+      "nazwa-pozycja": "Liban",
+      "symbol": "LB",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649843": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649843,
+      "nazwa-pozycja": "Laos",
+      "symbol": "LA",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649844": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649844,
+      "nazwa-pozycja": "Kirgistan",
+      "symbol": "KG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649845": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649845,
+      "nazwa-pozycja": "Kuwejt",
+      "symbol": "KW",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649846": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649846,
+      "nazwa-pozycja": "Korea Południowa",
+      "symbol": "KR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649847": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649847,
+      "nazwa-pozycja": "Korea Północna",
+      "symbol": "KP",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649848": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649848,
+      "nazwa-pozycja": "Jordania",
+      "symbol": "JO",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649849": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649849,
+      "nazwa-pozycja": "Kazachstan",
+      "symbol": "KZ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649850": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649850,
+      "nazwa-pozycja": "Japonia",
+      "symbol": "JP",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649851": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649851,
+      "nazwa-pozycja": "Izrael",
+      "symbol": "IL",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649852": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649852,
+      "nazwa-pozycja": "Irak",
+      "symbol": "IQ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649853": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649853,
+      "nazwa-pozycja": "Iran",
+      "symbol": "IR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649854": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649854,
+      "nazwa-pozycja": "Indonezja",
+      "symbol": "ID",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649855": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649855,
+      "nazwa-pozycja": "Indie",
+      "symbol": "IN",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649857": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649857,
+      "nazwa-pozycja": "Palestyna",
+      "symbol": "PS",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649858": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649858,
+      "nazwa-pozycja": "Gruzja",
+      "symbol": "GE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649860": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649860,
+      "nazwa-pozycja": "Wyspa Bożego Narodzenia",
+      "symbol": "CX",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649862": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649862,
+      "nazwa-pozycja": "Chiny",
+      "symbol": "CN",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649863": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649863,
+      "nazwa-pozycja": "Sri Lanka",
+      "symbol": "LK",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649864": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649864,
+      "nazwa-pozycja": "Kambodża",
+      "symbol": "KH",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649865": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649865,
+      "nazwa-pozycja": "Mjanma (Birma)",
+      "symbol": "MM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649866": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649866,
+      "nazwa-pozycja": "Brunei",
+      "symbol": "BN",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649867": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649867,
+      "nazwa-pozycja": "Brytyjskie Terytorium Oceanu Indyjskiego",
+      "symbol": "IO",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649868": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649868,
+      "nazwa-pozycja": "Bhutan",
+      "symbol": "BT",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649869": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649869,
+      "nazwa-pozycja": "Armenia",
+      "symbol": "AM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649870": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649870,
+      "nazwa-pozycja": "Bangladesz",
+      "symbol": "BD",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649871": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649871,
+      "nazwa-pozycja": "Bahrajn",
+      "symbol": "BH",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649872": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649872,
+      "nazwa-pozycja": "Azerbejdżan",
+      "symbol": "AZ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649873": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649873,
+      "nazwa-pozycja": "Afganistan",
+      "symbol": "AF",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649877": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649877,
+      "nazwa-pozycja": "Wielka Brytania",
+      "symbol": "GB",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649879": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649879,
+      "nazwa-pozycja": "Ukraina",
+      "symbol": "UA",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649880": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649880,
+      "nazwa-pozycja": "Turcja",
+      "symbol": "TR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649881": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649881,
+      "nazwa-pozycja": "Szwajcaria",
+      "symbol": "CH",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649882": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649882,
+      "nazwa-pozycja": "Szwecja",
+      "symbol": "SE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649884": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649884,
+      "nazwa-pozycja": "Hiszpania",
+      "symbol": "ES",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649885": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649885,
+      "nazwa-pozycja": "Słowenia",
+      "symbol": "SI",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649886": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649886,
+      "nazwa-pozycja": "Słowacja",
+      "symbol": "SK",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649887": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649887,
+      "nazwa-pozycja": "San Marino",
+      "symbol": "SM",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649888": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649888,
+      "nazwa-pozycja": "Rosja",
+      "symbol": "RU",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649889": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649889,
+      "nazwa-pozycja": "Rumunia",
+      "symbol": "RO",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649890": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649890,
+      "nazwa-pozycja": "Portugalia",
+      "symbol": "PT",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649891": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649891,
+      "nazwa-pozycja": "Polska",
+      "symbol": "PL",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649892": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649892,
+      "nazwa-pozycja": "Norwegia",
+      "symbol": "NO",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649893": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649893,
+      "nazwa-pozycja": "Kosowo",
+      "symbol": "XK",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649894": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649894,
+      "nazwa-pozycja": "Holandia",
+      "symbol": "NL",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649895": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649895,
+      "nazwa-pozycja": "Czarnogóra",
+      "symbol": "ME",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649896": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649896,
+      "nazwa-pozycja": "Mołdawia",
+      "symbol": "MD",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649898": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649898,
+      "nazwa-pozycja": "Malta",
+      "symbol": "MT",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649899": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649899,
+      "nazwa-pozycja": "Luksemburg",
+      "symbol": "LU",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649900": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649900,
+      "nazwa-pozycja": "Litwa",
+      "symbol": "LT",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649901": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649901,
+      "nazwa-pozycja": "Liechtenstein",
+      "symbol": "LI",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649902": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649902,
+      "nazwa-pozycja": "Łotwa",
+      "symbol": "LV",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649903": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649903,
+      "nazwa-pozycja": "Włochy",
+      "symbol": "IT",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649904": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649904,
+      "nazwa-pozycja": "Irlandia",
+      "symbol": "IE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649905": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649905,
+      "nazwa-pozycja": "Islandia",
+      "symbol": "IS",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649906": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649906,
+      "nazwa-pozycja": "Węgry",
+      "symbol": "HU",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649907": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649907,
+      "nazwa-pozycja": "Watykan",
+      "symbol": "VA",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649908": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649908,
+      "nazwa-pozycja": "Grecja",
+      "symbol": "GR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649909": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649909,
+      "nazwa-pozycja": "Gibraltar",
+      "symbol": "GI",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649910": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649910,
+      "nazwa-pozycja": "Niemcy",
+      "symbol": "DE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649911": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649911,
+      "nazwa-pozycja": "Francja",
+      "symbol": "FR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649913": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649913,
+      "nazwa-pozycja": "Finlandia",
+      "symbol": "FI",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649914": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649914,
+      "nazwa-pozycja": "Wyspy Owcze",
+      "symbol": "FO",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649915": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649915,
+      "nazwa-pozycja": "Estonia",
+      "symbol": "EE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649916": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649916,
+      "nazwa-pozycja": "Dania",
+      "symbol": "DK",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649917": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649917,
+      "nazwa-pozycja": "Cypr",
+      "symbol": "CY",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649918": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649918,
+      "nazwa-pozycja": "Chorwacja",
+      "symbol": "HR",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649919": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649919,
+      "nazwa-pozycja": "Białoruś",
+      "symbol": "BY",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649920": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649920,
+      "nazwa-pozycja": "Bułgaria",
+      "symbol": "BG",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649921": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649921,
+      "nazwa-pozycja": "Bośnia i Hercegowina",
+      "symbol": "BA",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649922": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649922,
+      "nazwa-pozycja": "Belgia",
+      "symbol": "BE",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649923": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649923,
+      "nazwa-pozycja": "Austria",
+      "symbol": "AT",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649924": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649924,
+      "nazwa-pozycja": "Andora",
+      "symbol": "AD",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649925": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649925,
+      "nazwa-pozycja": "Albania",
+      "symbol": "AL",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649939": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649939,
+      "nazwa-pozycja": "Turks i Caicos",
+      "symbol": "TC",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649941": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649941,
+      "nazwa-pozycja": "Dominikana",
+      "symbol": "DO",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "6649951": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 6649951,
+      "nazwa-pozycja": "Serbia",
+      "symbol": "XS",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7276956": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7276956,
+      "nazwa-pozycja": "Niew.kr.i teryt, p. handl.i mil",
+      "symbol": "QX",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7276957": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7276957,
+      "nazwa-pozycja": "Niewyszczególnione kr. i teryt.",
+      "symbol": "QU",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7277327": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7277327,
+      "nazwa-pozycja": "Pełne morze",
+      "symbol": "QP",
+      "data-poczatku": "2013-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7277329": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7277329,
+      "nazwa-pozycja": "Zap. i zaop. statków, niezn.arm.",
+      "symbol": "QQ",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7277330": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7277330,
+      "nazwa-pozycja": "QQ w ramach handlu z UE",
+      "symbol": "QR",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7277331": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7277331,
+      "nazwa-pozycja": "QQ w ramach handlu z kr.trzecimi",
+      "symbol": "QS",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7277333": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7277333,
+      "nazwa-pozycja": "QU w ramach handlu z kr.trzecimi",
+      "symbol": "QW",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7277396": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7277396,
+      "nazwa-pozycja": "QU w ramach handlu z UE",
+      "symbol": "QV",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7277397": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7277397,
+      "nazwa-pozycja": "QX w ramach handlu z kr.trzecimi",
+      "symbol": "QZ",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7277399": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7277399,
+      "nazwa-pozycja": "QX w ramach handlu z UE",
+      "symbol": "QY",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7437335": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7437335,
+      "nazwa-pozycja": "Macedonia Północna",
+      "symbol": "MK",
+      "data-poczatku": "2019-02-13",
+      "data-konca": "9999-12-31"
+    },
+    "7437348": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7437348,
+      "nazwa-pozycja": "Eswatini",
+      "symbol": "SZ",
+      "data-poczatku": "2018-04-19",
+      "data-konca": "9999-12-31"
+    },
+    "7439975": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7439975,
+      "nazwa-pozycja": "Czechy",
+      "symbol": "CZ",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7463736": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7463736,
+      "nazwa-pozycja": "Antyle Holenderskie",
+      "symbol": "AN",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "2010-10-10"
+    },
+    "7463787": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7463787,
+      "nazwa-pozycja": "Saint-Barthélemy",
+      "symbol": "BL",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7463815": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7463815,
+      "nazwa-pozycja": "Curaçao",
+      "symbol": "CW",
+      "data-poczatku": "1999-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7473122": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7473122,
+      "nazwa-pozycja": "Wyspy Kokosowe (inaczej Wyspy Keelinga)",
+      "symbol": "CC",
+      "data-poczatku": "1955-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7473138": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7473138,
+      "nazwa-pozycja": "Bahamy",
+      "symbol": "BS",
+      "data-poczatku": "1973-07-10",
+      "data-konca": "9999-12-31"
+    },
+    "7473154": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7473154,
+      "nazwa-pozycja": "Republika Zielonego Przylądka",
+      "symbol": "CV",
+      "data-poczatku": "1975-07-05",
+      "data-konca": "9999-12-31"
+    },
+    "7475101": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7475101,
+      "nazwa-pozycja": "Gambia",
+      "symbol": "GM",
+      "data-poczatku": "1965-02-18",
+      "data-konca": "9999-12-31"
+    },
+    "7475865": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7475865,
+      "nazwa-pozycja": "Hongkong",
+      "symbol": "HK",
+      "data-poczatku": "1997-07-01",
+      "data-konca": "9999-12-31"
+    },
+    "7548214": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7548214,
+      "nazwa-pozycja": "Makau",
+      "symbol": "MO",
+      "data-poczatku": "1999-12-20",
+      "data-konca": "9999-12-31"
+    },
+    "7548327": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7548327,
+      "nazwa-pozycja": "Sint Maarten (część niderlandzka)",
+      "symbol": "SX",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7548413": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7548413,
+      "nazwa-pozycja": "Francuskie Terytoria Południowe",
+      "symbol": "TF",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7548478": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7548478,
+      "nazwa-pozycja": "Tajwan",
+      "symbol": "TW",
+      "data-poczatku": "1911-12-31",
+      "data-konca": "9999-12-31"
+    },
+    "7548583": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7548583,
+      "nazwa-pozycja": "Małe Oddalone Wyspy Stanów Zjednoczonych",
+      "symbol": "UM",
+      "data-poczatku": "1986-01-01",
+      "data-konca": "9999-12-31"
+    },
+    "7548674": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7548674,
+      "nazwa-pozycja": "Wietnam",
+      "symbol": "VN",
+      "data-poczatku": "1954-07-21",
+      "data-konca": "9999-12-31"
+    },
+    "7548785": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7548785,
+      "nazwa-pozycja": "Południowa Afryka",
+      "symbol": "ZA",
+      "data-poczatku": "1910-05-30",
+      "data-konca": "9999-12-31"
+    },
+    "7639521": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7639521,
+      "nazwa-pozycja": "Serbia i Czarnogóra",
+      "symbol": "CS",
+      "data-poczatku": "2003-02-04",
+      "data-konca": "2006-06-05"
+    },
+    "7639645": {
+      "id-przekroj": 1434,
+      "id-wymiar": 734,
+      "nazwa-wymiar": "Kraje towary",
+      "id-pozycja": 7639645,
+      "nazwa-pozycja": "Nieznany kraj",
+      "symbol": "_no",
+      "data-poczatku": "1901-01-01",
+      "data-konca": "9999-12-31"
+    }
+  },
+  "towary": {
+    "8212898000062": {
+      "id-przekroj": 1434,
+      "id-wymiar": 1181,
+      "nazwa-wymiar": "CN - uzupełniająca jednostka miary",
+      "id-pozycja": 8212898000062,
+      "nazwa-pozycja": "27112100 - Gaz ziemny w stanie gazowym [TJ]",
+      "symbol": "27112100",
+      "data-poczatku": "2004-01-01",
+      "data-konca": "9999-12-31",
+      "jednostka": "TJ"
+    },
+    "8212945000062": {
+      "id-przekroj": 1434,
+      "id-wymiar": 1181,
+      "nazwa-wymiar": "CN - uzupełniająca jednostka miary",
+      "id-pozycja": 8212945000062,
+      "nazwa-pozycja": "27111100 - Gaz ziemny skroplony [TJ]",
+      "symbol": "27111100",
+      "data-poczatku": "2004-01-01",
+      "data-konca": "9999-12-31",
+      "jednostka": "TJ"
+    }
+  },
+  "miesiace": {
+    "1": 247,
+    "2": 248,
+    "3": 249,
+    "4": 250,
+    "5": 251,
+    "6": 252,
+    "7": 253,
+    "8": 254,
+    "9": 255,
+    "10": 256,
+    "11": 257,
+    "12": 258
+  },
+  "okres_roczny": 282,
+  "serie": {
+    "1": {
+      "id-przekroj": 1434,
+      "nazwa-przekroj": "Polska; Kraje towary; CN - uzupełniająca jednostka miary",
+      "szereg-czasowy": "2004 - 2025",
+      "id-czestotliwosc": 1,
+      "nazwa-czestotliwosc": "Rok",
+      "aktualizacja-ostatnia": "2026-07-31"
+    },
+    "3": {
+      "id-przekroj": 1434,
+      "nazwa-przekroj": "Polska; Kraje towary; CN - uzupełniająca jednostka miary",
+      "szereg-czasowy": "2004 - 2026",
+      "id-czestotliwosc": 3,
+      "nazwa-czestotliwosc": "Miesiąc",
+      "aktualizacja-ostatnia": "2026-09-15",
+      "aktualizacja-kolejna": "2026-10-14"
+    }
+  },
+  "flagi": {
+    "1": {
+      "id-flaga": 1,
+      "oznaczenie": "b",
+      "nazwa": "Przerwa w szeregu danych"
+    },
+    "29": {
+      "id-flaga": 29,
+      "oznaczenie": "s",
+      "nazwa": "Wartość szacunkowa"
+    },
+    "30": {
+      "id-flaga": 30,
+      "oznaczenie": "p",
+      "nazwa": "Prognoza"
+    },
+    "31": {
+      "id-flaga": 31,
+      "oznaczenie": "w",
+      "nazwa": "Dane wstępne"
+    },
+    "32": {
+      "id-flaga": 32,
+      "oznaczenie": "r",
+      "nazwa": "Dane skorygowane"
+    },
+    "33": {
+      "id-flaga": 33,
+      "oznaczenie": "f",
+      "nazwa": "Pełna zbiorowość"
+    },
+    "34": {
+      "id-flaga": 34,
+      "oznaczenie": "x",
+      "nazwa": "Dane eksperymentalne"
+    },
+    "35": {
+      "id-flaga": 35,
+      "oznaczenie": "i",
+      "nazwa": "Dane imputowane"
+    },
+    "36": {
+      "id-flaga": 36,
+      "oznaczenie": "nd",
+      "nazwa": "Nie dotyczy"
+    },
+    "251": {
+      "id-flaga": 251,
+      "oznaczenie": "v",
+      "nazwa": "Dane o niskiej precyzji"
+    },
+    "305": {
+      "id-flaga": 305,
+      "oznaczenie": "fr",
+      "nazwa": "Pełna zbiorowość, dane skorygowane"
+    },
+    "306": {
+      "id-flaga": 306,
+      "oznaczenie": "sr",
+      "nazwa": "Wartość szacunkowa, dane skorygowane"
+    },
+    "307": {
+      "id-flaga": 307,
+      "oznaczenie": "pr",
+      "nazwa": "Prognoza, dane skorygowane"
+    },
+    "308": {
+      "id-flaga": 308,
+      "oznaczenie": "wr",
+      "nazwa": "Dane wstępne, dane skorygowane"
+    },
+    "309": {
+      "id-flaga": 309,
+      "oznaczenie": "ir",
+      "nazwa": "Dane imputowane, dane skorygowane"
+    },
+    "310": {
+      "id-flaga": 310,
+      "oznaczenie": "xr",
+      "nazwa": "Dane eksperymentalne, dane skorygowane"
+    },
+    "311": {
+      "id-flaga": 311,
+      "oznaczenie": "vr",
+      "nazwa": "Dane o niskiej precyzji, dane skorygowane"
+    },
+    "346": {
+      "id-flaga": 346,
+      "oznaczenie": "o",
+      "nazwa": "Dane ostateczne"
+    },
+    "448": {
+      "id-flaga": 448,
+      "oznaczenie": "br",
+      "nazwa": "Przerwa w szeregu danych, dane skorygowane"
+    },
+    "474": {
+      "id-flaga": 474,
+      "oznaczenie": "n",
+      "nazwa": "Notka informacyjna"
+    },
+    "629": {
+      "id-flaga": 629,
+      "oznaczenie": "bw",
+      "nazwa": "Przerwa w szeregu danych, dane wstępne"
+    },
+    "630": {
+      "id-flaga": 630,
+      "oznaczenie": "bo",
+      "nazwa": "Przerwa w szeregu danych, dane ostateczne"
+    }
+  },
+  "braki": {
+    "38": {
+      "id-brak-wartosci": 38,
+      "oznaczenie": "(.)",
+      "nazwa": "brak informacji, konieczność zachowania tajemnicy statystycznej lub wypełnienie pozycji jest niemożliwe albo niecelowe"
+    },
+    "39": {
+      "id-brak-wartosci": 39,
+      "oznaczenie": "(0,0)",
+      "nazwa": "zjawisko istniało w wielkości mniejszej od 0,05"
+    },
+    "41": {
+      "id-brak-wartosci": 41,
+      "oznaczenie": "(0)",
+      "nazwa": "zjawisko istniało w wielkości mniejszej od 0,5"
+    },
+    "42": {
+      "id-brak-wartosci": 42,
+      "oznaczenie": "(—)",
+      "nazwa": "zjawisko nie wystąpiło"
+    },
+    "253": {
+      "id-brak-wartosci": 253,
+      "oznaczenie": "ND",
+      "nazwa": "Nie dotyczy"
+    },
+    "725": {
+      "id-brak-wartosci": 725,
+      "oznaczenie": "(0,n)",
+      "nazwa": "wartość mniejsza niż przyjęty format prezentacji"
+    }
+  },
+  "tajnosc": {
+    "43": {
+      "id-tajnosci": 43,
+      "oznaczenie": "nd",
+      "nazwa": "Dane jawne"
+    },
+    "601": {
+      "id-tajnosci": 601,
+      "oznaczenie": "(:)",
+      "nazwa": "Dane tajne"
+    }
+  }
+}
