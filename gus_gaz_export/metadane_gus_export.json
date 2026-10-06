@@ -2996,16 +2996,6 @@
       "oznaczenie": "(.)",
       "nazwa": "brak informacji, konieczność zachowania tajemnicy statystycznej lub wypełnienie pozycji jest niemożliwe albo niecelowe"
     },
-    "39": {
-      "id-brak-wartosci": 39,
-      "oznaczenie": "(0,0)",
-      "nazwa": "zjawisko istniało w wielkości mniejszej od 0,05"
-    },
-    "41": {
-      "id-brak-wartosci": 41,
-      "oznaczenie": "(0)",
-      "nazwa": "zjawisko istniało w wielkości mniejszej od 0,5"
-    },
     "42": {
       "id-brak-wartosci": 42,
       "oznaczenie": "(—)",
