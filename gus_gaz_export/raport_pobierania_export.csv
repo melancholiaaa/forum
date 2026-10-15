@@ -103,12 +103,12 @@
 2025 M11;miesieczny;pobrano;11;3;
 2025 M12;miesieczny;pobrano;11;4;
 2025;roczny;pobrano;18;7;
-2026 M1;miesieczny;pobrano;10;5;
+2026 M1;miesieczny;pobrano;10;6;
 2026 M2;miesieczny;pobrano;10;4;
 2026 M3;miesieczny;pobrano;11;5;
 2026 M4;miesieczny;pobrano;11;5;
 2026 M5;miesieczny;pobrano;11;5;
 2026 M6;miesieczny;pobrano;11;4;
-2026 M7;miesieczny;pobrano;11;5;
-2026 M8;miesieczny;brak_okresu_w_api;;;Brak danych w API. Nie oznacza to zerowego eksportu.
+2026 M7;miesieczny;pobrano;11;6;
+2026 M8;miesieczny;pobrano;10;4;
 2026 M9;miesieczny;brak_okresu_w_api;;;Brak danych w API. Nie oznacza to zerowego eksportu.
