@@ -69,7 +69,7 @@
         "id-czestotliwosc": 3,
         "nazwa-czestotliwosc": "Miesiąc",
         "aktualizacja-ostatnia": "2026-10-14",
-        "aktualizacja-kolejna": "2026-11-16"
+        "aktualizacja-kolejna": "2026-11-13"
       },
       {
         "id-przekroj": 1136,
@@ -86,7 +86,7 @@
         "id-czestotliwosc": 3,
         "nazwa-czestotliwosc": "Miesiąc",
         "aktualizacja-ostatnia": "2026-10-14",
-        "aktualizacja-kolejna": "2026-11-16"
+        "aktualizacja-kolejna": "2026-11-13"
       },
       {
         "id-przekroj": 1144,
@@ -103,7 +103,7 @@
         "id-czestotliwosc": 3,
         "nazwa-czestotliwosc": "Miesiąc",
         "aktualizacja-ostatnia": "2026-10-14",
-        "aktualizacja-kolejna": "2026-11-16"
+        "aktualizacja-kolejna": "2026-11-13"
       },
       {
         "id-przekroj": 1194,
@@ -136,7 +136,7 @@
         "id-czestotliwosc": 3,
         "nazwa-czestotliwosc": "Miesiąc",
         "aktualizacja-ostatnia": "2026-10-14",
-        "aktualizacja-kolejna": "2026-11-16"
+        "aktualizacja-kolejna": "2026-11-13"
       },
       {
         "id-przekroj": 1199,
@@ -169,7 +169,7 @@
         "id-czestotliwosc": 3,
         "nazwa-czestotliwosc": "Miesiąc",
         "aktualizacja-ostatnia": "2026-10-14",
-        "aktualizacja-kolejna": "2026-11-16"
+        "aktualizacja-kolejna": "2026-11-13"
       },
       {
         "id-przekroj": 1246,
@@ -186,7 +186,7 @@
         "id-czestotliwosc": 3,
         "nazwa-czestotliwosc": "Miesiąc",
         "aktualizacja-ostatnia": "2026-10-14",
-        "aktualizacja-kolejna": "2026-11-16"
+        "aktualizacja-kolejna": "2026-11-13"
       },
       {
         "id-przekroj": 1434,
@@ -203,7 +203,7 @@
         "id-czestotliwosc": 3,
         "nazwa-czestotliwosc": "Miesiąc",
         "aktualizacja-ostatnia": "2026-10-14",
-        "aktualizacja-kolejna": "2026-11-16"
+        "aktualizacja-kolejna": "2026-11-13"
       }
     ],
     "zestawy": [
@@ -2875,7 +2875,7 @@
       "id-czestotliwosc": 3,
       "nazwa-czestotliwosc": "Miesiąc",
       "aktualizacja-ostatnia": "2026-10-14",
-      "aktualizacja-kolejna": "2026-11-16"
+      "aktualizacja-kolejna": "2026-11-13"
     }
   },
   "flagi": {
